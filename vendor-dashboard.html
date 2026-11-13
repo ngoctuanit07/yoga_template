@@ -1,0 +1,3471 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="jacklabs" name="description"/>
+<meta content="jacklabs" name="keywords"/>
+<meta content="jacklabs" name="author"/>
+<link href="assets/images/favicon.png" rel="icon" type="image/x-icon"/>
+<link href="assets/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+<title>Jacklabs - Multi-purpose E-commerce Html Template</title>
+<!--Google font-->
+<!-- Google font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Mulish:wght@300;400;600;700&display=swap" rel="stylesheet">
+<!-- Icons -->
+<link href="assets/css/vendors/font-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="assets/css/vendors/remixicon.css" rel="stylesheet" type="text/css"/>
+<!-- Slick slider css -->
+<link href="assets/css/vendors/slick.css" rel="stylesheet" type="text/css"/>
+<!-- Animate icon -->
+<link href="assets/css/vendors/animate.css" rel="stylesheet" type="text/css"/>
+<!-- date picker -->
+<link href="assets/css/vendors/date-picker.css" rel="stylesheet" type="text/css"/>
+<!-- Themify icon -->
+<link href="assets/css/vendors/themify-icons.css" rel="stylesheet" type="text/css"/>
+<!-- Bootstrap css -->
+<link href="assets/css/vendors/bootstrap.css" rel="stylesheet" type="text/css"/>
+<!-- Theme css -->
+<link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+<style type="text/css">.apexcharts-canvas {
+  position: relative;
+  user-select: none;
+  /* cannot give overflow: hidden as it will crop tooltips which overflow outside chart area */
+}
+
+
+/* scrollbar is not visible by default for legend, hence forcing the visibility */
+.apexcharts-canvas ::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 6px;
+}
+
+.apexcharts-canvas ::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
+.apexcharts-canvas.apexcharts-theme-dark {
+  background: #343F57;
+}
+
+.apexcharts-inner {
+  position: relative;
+}
+
+.apexcharts-text tspan {
+  font-family: inherit;
+}
+
+.legend-mouseover-inactive {
+  transition: 0.15s ease all;
+  opacity: 0.20;
+}
+
+.apexcharts-series-collapsed {
+  opacity: 0;
+}
+
+.apexcharts-tooltip {
+  border-radius: 5px;
+  box-shadow: 2px 2px 6px -4px #999;
+  cursor: default;
+  font-size: 14px;
+  left: 62px;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 12;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-tooltip.apexcharts-theme-light {
+  border: 1px solid #e3e3e3;
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.apexcharts-tooltip.apexcharts-theme-dark {
+  color: #fff;
+  background: rgba(30, 30, 30, 0.8);
+}
+
+.apexcharts-tooltip * {
+  font-family: inherit;
+}
+
+.apexcharts-tooltip.apexcharts-active {
+  opacity: 1;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-tooltip-title {
+  padding: 6px;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.apexcharts-tooltip.apexcharts-theme-light .apexcharts-tooltip-title {
+  background: #ECEFF1;
+  border-bottom: 1px solid #ddd;
+}
+
+.apexcharts-tooltip.apexcharts-theme-dark .apexcharts-tooltip-title {
+  background: rgba(0, 0, 0, 0.7);
+  border-bottom: 1px solid #333;
+}
+
+.apexcharts-tooltip-text-value,
+.apexcharts-tooltip-text-z-value {
+  display: inline-block;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+.apexcharts-tooltip-text-z-label:empty,
+.apexcharts-tooltip-text-z-value:empty {
+  display: none;
+}
+
+.apexcharts-tooltip-text-value,
+.apexcharts-tooltip-text-z-value {
+  font-weight: 600;
+}
+
+.apexcharts-tooltip-marker {
+  width: 12px;
+  height: 12px;
+  position: relative;
+  top: 0px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.apexcharts-tooltip-series-group {
+  padding: 0 10px;
+  display: none;
+  text-align: left;
+  justify-content: left;
+  align-items: center;
+}
+
+.apexcharts-tooltip-series-group.apexcharts-active .apexcharts-tooltip-marker {
+  opacity: 1;
+}
+
+.apexcharts-tooltip-series-group.apexcharts-active,
+.apexcharts-tooltip-series-group:last-child {
+  padding-bottom: 4px;
+}
+
+.apexcharts-tooltip-series-group-hidden {
+  opacity: 0;
+  height: 0;
+  line-height: 0;
+  padding: 0 !important;
+}
+
+.apexcharts-tooltip-y-group {
+  padding: 6px 0 5px;
+}
+
+.apexcharts-tooltip-candlestick {
+  padding: 4px 8px;
+}
+
+.apexcharts-tooltip-candlestick>div {
+  margin: 4px 0;
+}
+
+.apexcharts-tooltip-candlestick span.value {
+  font-weight: bold;
+}
+
+.apexcharts-tooltip-rangebar {
+  padding: 5px 8px;
+}
+
+.apexcharts-tooltip-rangebar .category {
+  font-weight: 600;
+  color: #777;
+}
+
+.apexcharts-tooltip-rangebar .series-name {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.apexcharts-xaxistooltip {
+  opacity: 0;
+  padding: 9px 10px;
+  pointer-events: none;
+  color: #373d3f;
+  font-size: 13px;
+  text-align: center;
+  border-radius: 2px;
+  position: absolute;
+  z-index: 10;
+  background: #ECEFF1;
+  border: 1px solid #90A4AE;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-xaxistooltip.apexcharts-theme-dark {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+.apexcharts-xaxistooltip:after,
+.apexcharts-xaxistooltip:before {
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.apexcharts-xaxistooltip:after {
+  border-color: rgba(236, 239, 241, 0);
+  border-width: 6px;
+  margin-left: -6px;
+}
+
+.apexcharts-xaxistooltip:before {
+  border-color: rgba(144, 164, 174, 0);
+  border-width: 7px;
+  margin-left: -7px;
+}
+
+.apexcharts-xaxistooltip-bottom:after,
+.apexcharts-xaxistooltip-bottom:before {
+  bottom: 100%;
+}
+
+.apexcharts-xaxistooltip-top:after,
+.apexcharts-xaxistooltip-top:before {
+  top: 100%;
+}
+
+.apexcharts-xaxistooltip-bottom:after {
+  border-bottom-color: #ECEFF1;
+}
+
+.apexcharts-xaxistooltip-bottom:before {
+  border-bottom-color: #90A4AE;
+}
+
+.apexcharts-xaxistooltip-bottom.apexcharts-theme-dark:after {
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-xaxistooltip-bottom.apexcharts-theme-dark:before {
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-xaxistooltip-top:after {
+  border-top-color: #ECEFF1
+}
+
+.apexcharts-xaxistooltip-top:before {
+  border-top-color: #90A4AE;
+}
+
+.apexcharts-xaxistooltip-top.apexcharts-theme-dark:after {
+  border-top-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-xaxistooltip-top.apexcharts-theme-dark:before {
+  border-top-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-xaxistooltip.apexcharts-active {
+  opacity: 1;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-yaxistooltip {
+  opacity: 0;
+  padding: 4px 10px;
+  pointer-events: none;
+  color: #373d3f;
+  font-size: 13px;
+  text-align: center;
+  border-radius: 2px;
+  position: absolute;
+  z-index: 10;
+  background: #ECEFF1;
+  border: 1px solid #90A4AE;
+}
+
+.apexcharts-yaxistooltip.apexcharts-theme-dark {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+.apexcharts-yaxistooltip:after,
+.apexcharts-yaxistooltip:before {
+  top: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.apexcharts-yaxistooltip:after {
+  border-color: rgba(236, 239, 241, 0);
+  border-width: 6px;
+  margin-top: -6px;
+}
+
+.apexcharts-yaxistooltip:before {
+  border-color: rgba(144, 164, 174, 0);
+  border-width: 7px;
+  margin-top: -7px;
+}
+
+.apexcharts-yaxistooltip-left:after,
+.apexcharts-yaxistooltip-left:before {
+  left: 100%;
+}
+
+.apexcharts-yaxistooltip-right:after,
+.apexcharts-yaxistooltip-right:before {
+  right: 100%;
+}
+
+.apexcharts-yaxistooltip-left:after {
+  border-left-color: #ECEFF1;
+}
+
+.apexcharts-yaxistooltip-left:before {
+  border-left-color: #90A4AE;
+}
+
+.apexcharts-yaxistooltip-left.apexcharts-theme-dark:after {
+  border-left-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-yaxistooltip-left.apexcharts-theme-dark:before {
+  border-left-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-yaxistooltip-right:after {
+  border-right-color: #ECEFF1;
+}
+
+.apexcharts-yaxistooltip-right:before {
+  border-right-color: #90A4AE;
+}
+
+.apexcharts-yaxistooltip-right.apexcharts-theme-dark:after {
+  border-right-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-yaxistooltip-right.apexcharts-theme-dark:before {
+  border-right-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-yaxistooltip.apexcharts-active {
+  opacity: 1;
+}
+
+.apexcharts-yaxistooltip-hidden {
+  display: none;
+}
+
+.apexcharts-xcrosshairs,
+.apexcharts-ycrosshairs {
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-xcrosshairs.apexcharts-active,
+.apexcharts-ycrosshairs.apexcharts-active {
+  opacity: 1;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-ycrosshairs-hidden {
+  opacity: 0;
+}
+
+.apexcharts-selection-rect {
+  cursor: move;
+}
+
+.svg_select_points,
+.svg_select_points_rot {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.svg_select_points_l,
+.svg_select_points_r {
+  cursor: ew-resize;
+  opacity: 1;
+  visibility: visible;
+  fill: #888;
+}
+
+.apexcharts-canvas.apexcharts-zoomable .hovering-zoom {
+  cursor: crosshair
+}
+
+.apexcharts-canvas.apexcharts-zoomable .hovering-pan {
+  cursor: move
+}
+
+.apexcharts-zoom-icon,
+.apexcharts-zoomin-icon,
+.apexcharts-zoomout-icon,
+.apexcharts-reset-icon,
+.apexcharts-pan-icon,
+.apexcharts-selection-icon,
+.apexcharts-menu-icon,
+.apexcharts-toolbar-custom-icon {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  line-height: 24px;
+  color: #6E8192;
+  text-align: center;
+}
+
+.apexcharts-zoom-icon svg,
+.apexcharts-zoomin-icon svg,
+.apexcharts-zoomout-icon svg,
+.apexcharts-reset-icon svg,
+.apexcharts-menu-icon svg {
+  fill: #6E8192;
+}
+
+.apexcharts-selection-icon svg {
+  fill: #444;
+  transform: scale(0.76)
+}
+
+.apexcharts-theme-dark .apexcharts-zoom-icon svg,
+.apexcharts-theme-dark .apexcharts-zoomin-icon svg,
+.apexcharts-theme-dark .apexcharts-zoomout-icon svg,
+.apexcharts-theme-dark .apexcharts-reset-icon svg,
+.apexcharts-theme-dark .apexcharts-pan-icon svg,
+.apexcharts-theme-dark .apexcharts-selection-icon svg,
+.apexcharts-theme-dark .apexcharts-menu-icon svg,
+.apexcharts-theme-dark .apexcharts-toolbar-custom-icon svg {
+  fill: #f3f4f5;
+}
+
+.apexcharts-canvas .apexcharts-zoom-icon.apexcharts-selected svg,
+.apexcharts-canvas .apexcharts-selection-icon.apexcharts-selected svg,
+.apexcharts-canvas .apexcharts-reset-zoom-icon.apexcharts-selected svg {
+  fill: #008FFB;
+}
+
+.apexcharts-theme-light .apexcharts-selection-icon:not(.apexcharts-selected):hover svg,
+.apexcharts-theme-light .apexcharts-zoom-icon:not(.apexcharts-selected):hover svg,
+.apexcharts-theme-light .apexcharts-zoomin-icon:hover svg,
+.apexcharts-theme-light .apexcharts-zoomout-icon:hover svg,
+.apexcharts-theme-light .apexcharts-reset-icon:hover svg,
+.apexcharts-theme-light .apexcharts-menu-icon:hover svg {
+  fill: #333;
+}
+
+.apexcharts-selection-icon,
+.apexcharts-menu-icon {
+  position: relative;
+}
+
+.apexcharts-reset-icon {
+  margin-left: 5px;
+}
+
+.apexcharts-zoom-icon,
+.apexcharts-reset-icon,
+.apexcharts-menu-icon {
+  transform: scale(0.85);
+}
+
+.apexcharts-zoomin-icon,
+.apexcharts-zoomout-icon {
+  transform: scale(0.7)
+}
+
+.apexcharts-zoomout-icon {
+  margin-right: 3px;
+}
+
+.apexcharts-pan-icon {
+  transform: scale(0.62);
+  position: relative;
+  left: 1px;
+  top: 0px;
+}
+
+.apexcharts-pan-icon svg {
+  fill: #fff;
+  stroke: #6E8192;
+  stroke-width: 2;
+}
+
+.apexcharts-pan-icon.apexcharts-selected svg {
+  stroke: #008FFB;
+}
+
+.apexcharts-pan-icon:not(.apexcharts-selected):hover svg {
+  stroke: #333;
+}
+
+.apexcharts-toolbar {
+  position: absolute;
+  z-index: 11;
+  max-width: 176px;
+  text-align: right;
+  border-radius: 3px;
+  padding: 0px 6px 2px 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.apexcharts-menu {
+  background: #fff;
+  position: absolute;
+  top: 100%;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 3px;
+  right: 10px;
+  opacity: 0;
+  min-width: 110px;
+  transition: 0.15s ease all;
+  pointer-events: none;
+}
+
+.apexcharts-menu.apexcharts-menu-open {
+  opacity: 1;
+  pointer-events: all;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-menu-item {
+  padding: 6px 7px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.apexcharts-theme-light .apexcharts-menu-item:hover {
+  background: #eee;
+}
+
+.apexcharts-theme-dark .apexcharts-menu {
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .apexcharts-canvas:hover .apexcharts-toolbar {
+    opacity: 1;
+  }
+}
+
+.apexcharts-datalabel.apexcharts-element-hidden {
+  opacity: 0;
+}
+
+.apexcharts-pie-label,
+.apexcharts-datalabels,
+.apexcharts-datalabel,
+.apexcharts-datalabel-label,
+.apexcharts-datalabel-value {
+  cursor: default;
+  pointer-events: none;
+}
+
+.apexcharts-pie-label-delay {
+  opacity: 0;
+  animation-name: opaque;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+}
+
+.apexcharts-canvas .apexcharts-element-hidden {
+  opacity: 0;
+}
+
+.apexcharts-hide .apexcharts-series-points {
+  opacity: 0;
+}
+
+.apexcharts-gridline,
+.apexcharts-annotation-rect,
+.apexcharts-tooltip .apexcharts-marker,
+.apexcharts-area-series .apexcharts-area,
+.apexcharts-line,
+.apexcharts-zoom-rect,
+.apexcharts-toolbar svg,
+.apexcharts-annotations-rects,
+.apexcharts-area-series .apexcharts-series-markers .apexcharts-marker.no-pointer-events,
+.apexcharts-line-series .apexcharts-series-markers .apexcharts-marker.no-pointer-events,
+.apexcharts-radar-series path,
+.apexcharts-radar-series polygon {
+  pointer-events: none;
+}
+
+
+/* markers */
+
+.apexcharts-marker {
+  transition: 0.15s ease all;
+}
+
+@keyframes opaque {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+/* Resize generated styles */
+
+@keyframes resizeanim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.resize-triggers {
+  animation: 1ms resizeanim;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.resize-triggers,
+.resize-triggers>div,
+.contract-trigger:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.resize-triggers>div {
+  background: #eee;
+  overflow: auto;
+}
+
+.contract-trigger:before {
+  width: 200%;
+  height: 200%;
+}</style></head>
+<body class="theme-color-1">
+<!-- header start -->
+<header>
+<div class="mobile-fix-option"></div>
+<div class="top-header">
+<div class="container">
+<div class="row">
+<div class="col-lg-6">
+<div class="header-contact">
+<ul>
+<li>Welcome to Our store Jacklabs</li>
+<li><i class="ri-phone-fill"></i>Call Us: 123 - 456 - 7890</li>
+</ul>
+</div>
+</div>
+<div class="col-lg-6 text-end">
+<ul class="header-dropdown">
+<li class="mobile-wishlist"><a href="#!"><i class="ri-heart-fill"></i></a>
+</li>
+<li class="onhover-dropdown mobile-account"> <i class="ri-user-fill"></i>
+                                My Account
+                                <ul class="onhover-show-div">
+<li><a href="./login.html">Login</a></li>
+<li><a href="./register.html">register</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-sm-12">
+<div class="main-menu">
+<div class="menu-left">
+<div class="navbar">
+<a href="#!" onclick="openNav()">
+<div class="bar-style">
+<i class="ri-bar-chart-horizontal-line sidebar-bar"></i>
+</div>
+</a>
+<div class="sidenav" id="mySidenav">
+<a class="sidebar-overlay" href="#!" onclick="closeNav()"></a>
+<nav>
+<div onclick="closeNav()">
+<div class="sidebar-back text-start">
+<i class="ri-arrow-left-s-line"></i>
+                                                Back
+                                            </div>
+</div>
+<ul class="sm pixelstrap sm-vertical" data-smartmenus-id="1793265889177178" id="sub-menu">
+<li>
+<a aria-controls="sm-1793265889177178-2" aria-expanded="false" aria-haspopup="true" class="has-submenu" href="#!" id="sm-1793265889177178-1">clothing<span class="sub-arrow"></span></a>
+<ul aria-expanded="false" aria-hidden="true" aria-labelledby="sm-1793265889177178-1" class="mega-menu clothing-menu" id="sm-1793265889177178-2" role="group">
+<li>
+<div class="row m-0">
+<div class="col-xl-4">
+<div class="link-section">
+<h5>women's fashion</h5>
+<ul>
+<li>
+<a href="#!">dresses</a>
+</li>
+<li>
+<a href="#!">skirts</a>
+</li>
+<li>
+<a href="#!">western wear</a>
+</li>
+<li>
+<a href="#!">ethic wear</a>
+</li>
+<li>
+<a href="#!">sport wear</a>
+</li>
+</ul>
+<h5>men's fashion</h5>
+<ul>
+<li>
+<a href="#!">sports wear</a>
+</li>
+<li>
+<a href="#!">western wear</a>
+</li>
+<li>
+<a href="#!">ethic wear</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="col-xl-4">
+<div class="link-section">
+<h5>accessories</h5>
+<ul>
+<li>
+<a href="#!">fashion jewellery</a>
+</li>
+<li>
+<a href="#!">caps and hats</a>
+</li>
+<li>
+<a href="#!">precious jewellery</a>
+</li>
+<li>
+<a href="#!">necklaces</a>
+</li>
+<li>
+<a href="#!">earrings</a>
+</li>
+<li>
+<a href="#!">wrist wear</a>
+</li>
+<li>
+<a href="#!">ties</a>
+</li>
+<li>
+<a href="#!">cufflinks</a>
+</li>
+<li>
+<a href="#!">pockets squares</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="col-xl-4">
+<a class="mega-menu-banner" href="#!">
+<img alt="" class="img-fluid blur-up lazyload" src="assets/images/mega-menu/fashion.jpg"/>
+</a>
+</div>
+</div>
+</li>
+</ul>
+</li>
+<li>
+<a aria-controls="sm-1793265889177178-4" aria-expanded="false" aria-haspopup="true" class="has-submenu" href="#!" id="sm-1793265889177178-3">bags<span class="sub-arrow"></span></a>
+<ul aria-expanded="false" aria-hidden="true" aria-labelledby="sm-1793265889177178-3" id="sm-1793265889177178-4" role="group">
+<li>
+<a href="#!">shopper bags</a>
+</li>
+<li>
+<a href="#!">laptop bags</a>
+</li>
+<li>
+<a href="#!">clutches</a>
+</li>
+<li>
+<a aria-controls="sm-1793265889177178-6" aria-expanded="false" aria-haspopup="true" class="has-submenu" href="#!" id="sm-1793265889177178-5">clutches<span class="sub-arrow"></span></a>
+<ul aria-expanded="false" aria-hidden="true" aria-labelledby="sm-1793265889177178-5" id="sm-1793265889177178-6" role="group">
+<li>
+<a href="#!">purses</a>
+</li>
+<li>
+<a href="#!">wallets</a>
+</li>
+<li>
+<a href="#!">leathers</a>
+</li>
+<li>
+<a href="#!">satchels</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a aria-controls="sm-1793265889177178-8" aria-expanded="false" aria-haspopup="true" class="has-submenu" href="#!" id="sm-1793265889177178-7">bags<span class="sub-arrow"></span></a>
+<ul aria-expanded="false" aria-hidden="true" aria-labelledby="sm-1793265889177178-7" id="sm-1793265889177178-8" role="group">
+<li>
+<a href="#!">shopper bags</a>
+</li>
+<li>
+<a href="#!">laptop bags</a>
+</li>
+<li>
+<a href="#!">clutches</a>
+</li>
+<li>
+<a aria-controls="sm-1793265889177178-10" aria-expanded="false" aria-haspopup="true" class="has-submenu" href="#!" id="sm-1793265889177178-9">purses<span class="sub-arrow"></span></a>
+<ul aria-expanded="false" aria-hidden="true" aria-labelledby="sm-1793265889177178-9" id="sm-1793265889177178-10" role="group">
+<li>
+<a href="#!">purses</a>
+</li>
+<li>
+<a href="#!">wallets</a>
+</li>
+<li>
+<a href="#!">leathers</a>
+</li>
+<li>
+<a href="#!">satchels</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li> <a aria-controls="sm-1793265889177178-12" aria-expanded="false" aria-haspopup="true" class="has-submenu" href="#!" id="sm-1793265889177178-11">bags<span class="sub-arrow"></span></a>
+<ul aria-expanded="false" aria-hidden="true" aria-labelledby="sm-1793265889177178-11" id="sm-1793265889177178-12" role="group">
+<li>
+<a href="#!">shopper bags</a>
+</li>
+<li>
+<a href="#!">laptop bags</a>
+</li>
+<li>
+<a href="#!">clutches</a>
+</li>
+<li>
+<a aria-controls="sm-1793265889177178-14" aria-expanded="false" aria-haspopup="true" class="has-submenu" href="#!" id="sm-1793265889177178-13">purses<span class="sub-arrow"></span></a>
+<ul aria-expanded="false" aria-hidden="true" aria-labelledby="sm-1793265889177178-13" id="sm-1793265889177178-14" role="group">
+<li>
+<a href="#!">purses</a>
+</li>
+<li>
+<a href="#!">wallets</a>
+</li>
+<li>
+<a href="#!">leathers</a>
+</li>
+<li>
+<a href="#!">satchels</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li> <a aria-controls="sm-1793265889177178-16" aria-expanded="false" aria-haspopup="true" class="has-submenu" href="#!" id="sm-1793265889177178-15">footwear<span class="sub-arrow"></span></a>
+<ul aria-expanded="false" aria-hidden="true" aria-labelledby="sm-1793265889177178-15" id="sm-1793265889177178-16" role="group">
+<li>
+<a href="#!">sport shoes</a>
+</li>
+<li>
+<a href="#!">formal shoes</a>
+</li>
+<li>
+<a href="#!">casual shoes</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#!">watches</a>
+</li>
+<li>
+<a aria-controls="sm-1793265889177178-18" aria-expanded="false" aria-haspopup="true" class="has-submenu" href="#!" id="sm-1793265889177178-17">Accessories<span class="sub-arrow"></span></a>
+<ul aria-expanded="false" aria-hidden="true" aria-labelledby="sm-1793265889177178-17" id="sm-1793265889177178-18" role="group">
+<li>
+<a href="#!">fashion jewellery</a>
+</li>
+<li>
+<a href="#!">caps and hats</a>
+</li>
+<li>
+<a href="#!">precious jewellery</a>
+</li>
+<li>
+<a aria-controls="sm-1793265889177178-20" aria-expanded="false" aria-haspopup="true" class="has-submenu" href="#!" id="sm-1793265889177178-19">more..<span class="sub-arrow"></span></a>
+<ul aria-expanded="false" aria-hidden="true" aria-labelledby="sm-1793265889177178-19" id="sm-1793265889177178-20" role="group">
+<li>
+<a href="#!">necklaces</a>
+</li>
+<li>
+<a href="#!">earrings</a>
+</li>
+<li>
+<a href="#!">wrist wear</a>
+</li>
+<li>
+<a aria-controls="sm-1793265889177178-22" aria-expanded="false" aria-haspopup="true" class="has-submenu" href="#!" id="sm-1793265889177178-21">accessories<span class="sub-arrow"></span></a>
+<ul aria-expanded="false" aria-hidden="true" aria-labelledby="sm-1793265889177178-21" id="sm-1793265889177178-22" role="group">
+<li>
+<a href="#!">ties</a>
+</li>
+<li>
+<a href="#!">cufflinks</a>
+</li>
+<li>
+<a href="#!">pockets squares</a>
+</li>
+<li>
+<a href="#!">helmets</a>
+</li>
+<li>
+<a href="#!">scarves</a>
+</li>
+<li>
+<a aria-controls="sm-1793265889177178-24" aria-expanded="false" aria-haspopup="true" class="has-submenu" href="#!" id="sm-1793265889177178-23">more...<span class="sub-arrow"></span></a>
+<ul aria-expanded="false" aria-hidden="true" aria-labelledby="sm-1793265889177178-23" id="sm-1793265889177178-24" role="group">
+<li>
+<a href="#!">accessory gift sets</a>
+</li>
+<li>
+<a href="#!">travel accessories</a>
+</li>
+<li>
+<a href="#!">phone cases</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="#!">belts &amp; more</a>
+</li>
+<li>
+<a href="#!">wearable</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="#!">house of design</a>
+</li>
+<li>
+<a aria-controls="sm-1793265889177178-26" aria-expanded="false" aria-haspopup="true" class="has-submenu" href="#!" id="sm-1793265889177178-25">beauty &amp; personal care<span class="sub-arrow"></span></a>
+<ul aria-expanded="false" aria-hidden="true" aria-labelledby="sm-1793265889177178-25" id="sm-1793265889177178-26" role="group">
+<li>
+<a href="#!">makeup</a>
+</li>
+<li>
+<a href="#!">skincare</a>
+</li>
+<li>
+<a href="#!">premium beauty</a>
+</li>
+<li>
+<a aria-controls="sm-1793265889177178-28" aria-expanded="false" aria-haspopup="true" class="has-submenu" href="#!" id="sm-1793265889177178-27">more<span class="sub-arrow"></span></a>
+<ul aria-expanded="false" aria-hidden="true" aria-labelledby="sm-1793265889177178-27" id="sm-1793265889177178-28" role="group">
+<li>
+<a href="#!">fragrances</a>
+</li>
+<li>
+<a href="#!">luxury beauty</a>
+</li>
+<li>
+<a href="#!">hair care</a>
+</li>
+<li>
+<a href="#!">tools &amp; brushes</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="#!">home &amp; decor</a>
+</li>
+<li>
+<a href="#!">kitchen</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class="brand-logo">
+<a href="./index.html">
+<img alt="" class="img-fluid blur-up lazyloaded" src="assets/images/logo.png"/>
+</a>
+</div>
+</div>
+<div class="menu-right pull-right">
+<div>
+<nav id="main-nav">
+<div class="toggle-nav"><i class="ri-bar-chart-horizontal-line sidebar-bar"></i>
+</div>
+<ul class="sm pixelstrap sm-horizontal" data-smartmenus-id="17932658891708804" id="main-menu">
+<li class="mobile-box">
+<div class="mobile-back text-end">Menu<i class="ri-close-line"></i></div>
+</li>
+<li><a href="./index.html">Home</a></li>
+<li class="mega hover-cls">
+<a aria-controls="sm-17932658891708804-2" aria-expanded="false" aria-haspopup="true" class="has-submenu" href="#!" id="sm-17932658891708804-1">feature <div class="lable-nav">new</div><span class="sub-arrow"></span></a>
+<ul aria-expanded="false" aria-hidden="true" aria-labelledby="sm-17932658891708804-1" class="mega-menu full-mega-menu" id="sm-17932658891708804-2" role="group">
+<li>
+<div class="container">
+<div class="row g-xl-4 g-0">
+<div class="col mega-box">
+<div class="link-section">
+<div class="menu-title">
+<h5>invoice template</h5>
+</div>
+<div class="menu-content">
+<ul>
+<li><a href="./order-success.html" target="_blank">invoice
+                                                                                    1</a></li>
+<li><a href="./order-success.html" target="_blank">invoice
+                                                                                    2</a></li>
+<li><a href="./order-success.html" target="_blank">invoice
+                                                                                    3</a></li>
+<li><a href="./order-success.html" target="_blank">invoice
+                                                                                    4</a></li>
+<li><a href="./order-success.html" target="_blank">invoice
+                                                                                    5</a></li>
+</ul>
+</div>
+<div class="menu-title">
+<h5>elements</h5>
+</div>
+<div class="menu-content">
+<ul>
+<li><a href="./elements.html">
+                                                                                    elements page<i class="ms-2 fa fa-bolt icon-trend"></i>
+</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col mega-box">
+<div class="link-section">
+<div class="menu-title">
+<h5>email template</h5>
+</div>
+<div class="menu-content">
+<ul>
+<li><a href="../email-template/welcome.html" target="_blank">welcome</a>
+</li>
+<li><a href="../email-template/new-product-announcement.html" target="_blank">announcement</a>
+</li>
+<li><a href="../email-template/abandonment-email.html" target="_blank">abandonment</a>
+</li>
+<li><a href="../email-template/offer.html" target="_blank">offer</a>
+</li>
+<li><a href="../email-template/offer-2.html" target="_blank">offer
+                                                                                    2</a></li>
+<li><a href="../email-template/product-review.html" target="_blank">review</a>
+</li>
+<li><a href="../email-template/featured-products.html" target="_blank">featured
+                                                                                    product</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col mega-box">
+<div class="link-section">
+<div class="menu-title">
+<h5>email template</h5>
+</div>
+<div class="menu-content">
+<ul>
+<li><a href="../email-template/black-friday.html" target="_blank">black
+                                                                                    friday</a></li>
+<li><a href="../email-template/christmas.html" target="_blank">christmas</a>
+</li>
+<li><a href="../email-template/cyber-monday.html" target="_blank">cyber-monday</a>
+</li>
+<li><a href="../email-template/flash-sale.html" target="_blank">flash
+                                                                                    sale</a></li>
+<li><a href="../email-template/email-order-success.html" target="_blank">order
+                                                                                    success</a></li>
+<li><a href="../email-template/email-order-success-two.html" target="_blank">order
+                                                                                    success 2</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col mega-box">
+<div class="link-section">
+<div class="menu-title">
+<h5>cookie bar</h5>
+</div>
+<div class="menu-content">
+<ul>
+<li><a href="./index.html">bottom<i class="ms-2 fa fa-bolt icon-trend"></i></a>
+</li>
+<li><a href="./fashion-4.html">bottom left</a>
+</li>
+<li><a href="./bicycle.html">bottom right</a>
+</li>
+</ul>
+</div>
+<div class="menu-title">
+<h5>search</h5>
+</div>
+<div class="menu-content">
+<ul>
+<li><a href="./marketplace-demo-2.html">ajax
+                                                                                    search<i class="ms-2 fa fa-bolt icon-trend"></i></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col mega-box">
+<div class="link-section">
+<div class="menu-title">
+<h5>model</h5>
+</div>
+<div class="menu-content">
+<ul>
+<li><a href="./index.html">Newsletter</a></li>
+<li><a href="./index.html">exit<i class="ms-2 fa fa-bolt icon-trend"></i></a>
+</li>
+<li><a href="./christmas.html">christmas</a>
+</li>
+<li><a href="./furniture-3.html">black
+                                                                                    friday</a></li>
+<li><a href="./fashion-4.html">cyber
+                                                                                    monday</a></li>
+<li><a href="./marketplace-demo-3.html">new
+                                                                                    year</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col mega-box">
+<div class="link-section">
+<div class="menu-title">
+<h5>add to cart</h5>
+</div>
+<div class="menu-content">
+<ul>
+<li><a href="./nursery.html">cart modal
+                                                                                    popup</a></li>
+<li><a href="./bags.html">cart top</a></li>
+<li><a href="./shoes.html">cart bottom</a>
+</li>
+<li><a href="./watch.html">cart left</a></li>
+<li><a href="./tools.html">cart right</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+<img alt="" class="img-fluid mega-img d-xl-block d-none" src="assets/images/menu-banner.jpg"/>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</li>
+<li>
+<a aria-controls="sm-17932658891708804-4" aria-expanded="false" aria-haspopup="true" class="has-submenu" href="#!" id="sm-17932658891708804-3">shop<span class="sub-arrow"></span></a>
+<ul aria-expanded="false" aria-hidden="true" aria-labelledby="sm-17932658891708804-3" id="sm-17932658891708804-4" role="group">
+<li>
+<a href="./category-page(vegetables).html">tab style<span class="new-tag">new</span></a>
+</li>
+<li>
+<a href="./category-page(top-filter).html">top filter</a>
+</li>
+<li>
+<a href="./category-page(modern).html">modern</a>
+</li>
+<li>
+<a href="./category-page.html">left sidebar</a>
+</li>
+<li>
+<a href="./category-page(right).html">right sidebar</a>
+</li>
+<li>
+<a href="./category-page(no-sidebar).html">no sidebar</a>
+</li>
+<li>
+<a href="./category-page(category-slider).html">Category Slider</a>
+</li>
+<li>
+<a href="./category-page(sidebar-popup).html">sidebar popup</a>
+</li>
+<li>
+<a href="./category-page(metro).html">metro</a>
+</li>
+<li>
+<a href="./category-page(full-width).html">full width</a>
+</li>
+<li>
+<a href="./category-page(load-more).html">load more</a>
+</li>
+<li>
+<a href="./category-page(2-grid).html">two grid</a>
+</li>
+<li>
+<a href="./category-page(3-grid).html">three grid</a>
+</li>
+<li>
+<a href="./category-page(4-grid).html">four grid</a>
+</li>
+<li>
+<a href="./category-page(list-view).html">list view</a>
+</li>
+</ul>
+</li>
+<li class="mega hover-cls">
+<a aria-controls="sm-17932658891708804-6" aria-expanded="false" aria-haspopup="true" class="has-submenu" href="#!" id="sm-17932658891708804-5">product<span class="sub-arrow"></span></a>
+<ul aria-expanded="false" aria-hidden="true" aria-labelledby="sm-17932658891708804-5" class="mega-menu full-mega-menu" id="sm-17932658891708804-6" role="group">
+<li>
+<div class="container">
+<div class="row g-xl-4 g-0">
+<div class="col mega-box">
+<div class="link-section">
+<div class="menu-title">
+<h5>Product Page</h5>
+</div>
+<div class="menu-content">
+<ul>
+<li>
+<a href="./product-page(thumbnail).html">Product
+                                                                                    Thumbnail</a>
+</li>
+<li>
+<a href="./product-page(4-image).html">Product
+                                                                                    Image</a>
+</li>
+<li>
+<a href="./product-page(slider).html">Product
+                                                                                    Slider</a>
+</li>
+<li>
+<a href="./product-page(accordian).html">Product
+                                                                                    Accordion</a>
+</li>
+<li>
+<a href="./product-page(sticky).html">Product
+                                                                                    Sticky</a>
+</li>
+<li>
+<a href="./product-page(vertical-tab).html">Product
+                                                                                    Vertical Tab</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col mega-box">
+<div class="link-section">
+<div class="menu-title">
+<h5>Product Page</h5>
+</div>
+<div class="menu-content">
+<ul>
+<li>
+<a href="./product-page(left-sidebar).html">Product
+                                                                                    Sidebar Left</a>
+</li>
+<li>
+<a href="./product-page(right-sidebar).html">Product
+                                                                                    Sidebar Right</a>
+</li>
+<li>
+<a href="./product-page(accordian).html">Product
+                                                                                    No Sidebar</a>
+</li>
+<li>
+<a href="./product-page(accordian).html">Product
+                                                                                    Column Thumbnail</a>
+</li>
+<li>
+<a href="./product-page(image-outside).html">Product
+                                                                                    Thumbnail Image Outside</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col mega-box">
+<div class="link-section">
+<div class="menu-title">
+<h5>Product Variants Style</h5>
+</div>
+<div class="menu-content">
+<ul>
+<li>
+<a href="./product-page(3-column).html">Variant
+                                                                                    Rectangle</a>
+</li>
+<li>
+<a href="./product-page(accordian).html">Variant
+                                                                                    Circle</a>
+</li>
+<li>
+<a href="./product-page(accordian).html">Variant
+                                                                                    Image Swatch</a>
+</li>
+<li>
+<a href="./product-page(3-column).html">Variant
+                                                                                    Color</a>
+</li>
+<li>
+<a href="./product-page(vertical-tab).html">Variant
+                                                                                    Radio Button</a>
+</li>
+<li>
+<a href="./product-page(sticky).html">Variant
+                                                                                    Dropdown</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col mega-box">
+<div class="link-section">
+<div class="menu-title">
+<h5>Product Features</h5>
+</div>
+<div class="menu-content">
+<ul>
+<li>
+<a href="./product-page(accordian).html">Product
+                                                                                    Simple</a>
+</li>
+<li>
+<a href="./product-page(left-sidebar).html">Product
+                                                                                    Classified</a>
+</li>
+<li>
+<a href="./product-page(accordian).html">Size
+                                                                                    Chart</a>
+</li>
+<li>
+<a href="./product-page(accordian).html">Delivery
+                                                                                    &amp; Return</a>
+</li>
+<li>
+<a href="./product-page(accordian).html">Product
+                                                                                    Review</a>
+</li>
+<li>
+<a href="./product-page(accordian).html">Ask
+                                                                                    an Expert</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col mega-box">
+<div class="link-section">
+<div class="menu-title">
+<h5>Product Features</h5>
+</div>
+<div class="menu-content">
+<ul>
+<li>
+<a href="./product-page(bundle).html">Bundle
+                                                                                    (Cross Sale)</a>
+</li>
+<li>
+<a href="./product-page(accordian).html">Hot
+                                                                                    Stock
+                                                                                    Progress</a>
+</li>
+<li>
+<a href="./product-page(accordian).html">Out
+                                                                                    Stock</a>
+</li>
+<li>
+<a href="./product-page(thumbnail).html">Sale
+                                                                                    Countdown</a>
+</li>
+<li>
+<a href="./product-page(thumbnail).html">Product
+                                                                                    Zoom</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col mega-box">
+<div class="link-section">
+<div class="menu-title">
+<h5>Product Features</h5>
+</div>
+<div class="menu-content">
+<ul>
+<li>
+<a href="./product-page(accordian).html">Sticky
+                                                                                    Checkout</a>
+</li>
+<li>
+<a href="./product-page(accordian).html">Secure
+                                                                                    Checkout</a>
+</li>
+<li>
+<a href="./product-page(vertical-tab).html">Social
+                                                                                    Share</a>
+</li>
+<li>
+<a href="./product-page(thumbnail).html">Related
+                                                                                    Products</a>
+</li>
+<li>
+<a href="./product-page(right-sidebar).html">Wishlist
+                                                                                    &amp; Compare</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+<img alt="" class="img-fluid mega-img d-xl-block d-none" src="assets/images/menu-banner.jpg"/>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</li>
+<li><a aria-controls="sm-17932658891708804-8" aria-expanded="false" aria-haspopup="true" class="has-submenu" href="#!" id="sm-17932658891708804-7">pages<span class="sub-arrow"></span></a>
+<ul aria-expanded="false" aria-hidden="true" aria-labelledby="sm-17932658891708804-7" id="sm-17932658891708804-8" role="group">
+<li>
+<a aria-controls="sm-17932658891708804-10" aria-expanded="false" aria-haspopup="true" class="has-submenu" href="#!" id="sm-17932658891708804-9">vendor<span class="sub-arrow"></span></a>
+<ul aria-expanded="false" aria-hidden="true" aria-labelledby="sm-17932658891708804-9" id="sm-17932658891708804-10" role="group">
+<li><a href="./vendor-dashboard.html">vendor dashboard</a>
+</li>
+<li><a href="./vendor-profile.html">vendor profile</a></li>
+<li><a href="./become-vendor.html">become vendor</a></li>
+</ul>
+</li>
+<li>
+<a aria-controls="sm-17932658891708804-12" aria-expanded="false" aria-haspopup="true" class="has-submenu" href="#!" id="sm-17932658891708804-11">account<span class="sub-arrow"></span></a>
+<ul aria-expanded="false" aria-hidden="true" aria-labelledby="sm-17932658891708804-11" id="sm-17932658891708804-12" role="group">
+<li><a href="./wishlist.html">wishlist</a></li>
+<li><a href="./cart.html">cart</a></li>
+<li><a href="./dashboard.html">Dashboard</a></li>
+<li><a href="./login.html">login</a></li>
+<li><a href="./register.html">register</a></li>
+<li><a href="./contact.html">contact</a></li>
+<li><a href="./forget_pwd.html">forget password</a></li>
+<li><a href="./profile.html">profile</a></li>
+<li><a href="./checkout.html">checkout</a></li>
+<li><a href="./order-success.html">order success</a></li>
+<li><a href="./order-tracking.html">order tracking<span class="new-tag">new</span></a></li>
+</ul>
+</li>
+<li>
+<a aria-controls="sm-17932658891708804-14" aria-expanded="false" aria-haspopup="true" class="has-submenu" href="#!" id="sm-17932658891708804-13">portfolio<span class="sub-arrow"></span></a>
+<ul aria-expanded="false" aria-hidden="true" aria-labelledby="sm-17932658891708804-13" id="sm-17932658891708804-14" role="group">
+<li><a aria-controls="sm-17932658891708804-16" aria-expanded="false" aria-haspopup="true" class="has-submenu" href="./vendor-dashboard.html" id="sm-17932658891708804-15">grid<span class="sub-arrow"></span></a>
+<ul aria-expanded="false" aria-hidden="true" aria-labelledby="sm-17932658891708804-15" id="sm-17932658891708804-16" role="group">
+<li><a href="./grid-2-col.html">grid
+                                                                        2</a></li>
+<li><a href="./grid-3-col.html">grid
+                                                                        3</a></li>
+<li><a href="./grid-4-col.html">grid
+                                                                        4</a></li>
+</ul>
+</li>
+<li><a aria-controls="sm-17932658891708804-18" aria-expanded="false" aria-haspopup="true" class="has-submenu" href="./vendor-dashboard.html" id="sm-17932658891708804-17">masonry<span class="sub-arrow"></span></a>
+<ul aria-expanded="false" aria-hidden="true" aria-labelledby="sm-17932658891708804-17" id="sm-17932658891708804-18" role="group">
+<li><a href="./masonary-2-grid.html">grid 2</a></li>
+<li><a href="./masonary-3-grid.html">grid 3</a></li>
+<li><a href="./masonary-4-grid.html">grid 4</a></li>
+<li><a href="./masonary-fullwidth.html">full width</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="./about-page.html">about us</a></li>
+<li><a href="./search.html">search</a></li>
+<li><a href="./review.html">review</a>
+</li>
+<li>
+<a aria-controls="sm-17932658891708804-20" aria-expanded="false" aria-haspopup="true" class="has-submenu" href="#!" id="sm-17932658891708804-19">compare<span class="sub-arrow"></span></a>
+<ul aria-expanded="false" aria-hidden="true" aria-labelledby="sm-17932658891708804-19" id="sm-17932658891708804-20" role="group">
+<li><a href="./compare.html">compare</a></li>
+<li><a href="./compare-2.html">compare-2</a></li>
+</ul>
+</li>
+<li><a href="./collection.html">collection</a></li>
+<li><a href="./lookbook.html">lookbook</a></li>
+<li><a href="./sitemap.html">site map</a>
+</li>
+<li><a href="./404.html">404</a></li>
+<li><a href="./coming-soon.html">coming soon</a></li>
+<li><a href="./faq.html">FAQ</a></li>
+</ul>
+</li>
+<li>
+<a aria-controls="sm-17932658891708804-22" aria-expanded="false" aria-haspopup="true" class="has-submenu" href="#!" id="sm-17932658891708804-21">blog<span class="sub-arrow"></span></a>
+<ul aria-expanded="false" aria-hidden="true" aria-labelledby="sm-17932658891708804-21" id="sm-17932658891708804-22" role="group">
+<li><a href="./blog-page.html">left sidebar</a></li>
+<li><a href="./blog(right-sidebar).html">right sidebar</a></li>
+<li><a href="./blog(no-sidebar).html">no sidebar</a></li>
+<li><a href="./blog-details.html">blog details</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+<div>
+<div class="icon-nav">
+<ul>
+<li class="onhover-div mobile-search">
+<div data-bs-target="#searchModal" data-bs-toggle="modal">
+<i class="ri-search-line"></i>
+</div>
+</li>
+<li class="onhover-div mobile-setting">
+<div><i class="ri-equalizer-2-line"></i></div>
+<div class="show-div setting">
+<h6>language</h6>
+<ul>
+<li><a href="#!">english</a></li>
+<li><a href="#!">french</a></li>
+</ul>
+<h6>currency</h6>
+<ul class="list-inline">
+<li><a href="#!">euro</a></li>
+<li><a href="#!">rupees</a></li>
+<li><a href="#!">pound</a></li>
+<li><a href="#!">dollar</a></li>
+</ul>
+</div>
+</li>
+<li class="onhover-div mobile-cart">
+<div data-bs-target="#cartOffcanvas" data-bs-toggle="offcanvas">
+<i class="ri-shopping-cart-line"></i>
+</div>
+<span class="cart_qty_cls">
+<span>2</span>
+</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- header end -->
+<!-- breadcrumb start -->
+<div class="breadcrumb-section">
+<div class="container">
+<h2>Vendor dashboard</h2>
+<nav class="theme-breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item">
+<a href="./index.html">Home</a>
+</li>
+<li class="breadcrumb-item active">Vendor dashboard</li>
+</ol>
+</nav>
+</div>
+</div>
+<!-- breadcrumb End -->
+<!--  dashboard section start -->
+<section class="dashboard-section section-b-space user-dashboard-section">
+<div class="container">
+<div class="row">
+<div class="col-lg-3">
+<div class="dashboard-sidebar">
+<div class="profile-top">
+<div class="profile-image vendor-image">
+<img alt="" class="img-fluid" src="assets/images/logos/17.png"/>
+</div>
+<div class="profile-detail">
+<h5>Fashion Store</h5>
+<h6>750 followers | 10 review</h6>
+<h6>mark.enderess@mail.com</h6>
+</div>
+</div>
+<div class="faq-tab">
+<ul class="nav nav-tabs" id="top-tab" role="tablist">
+<li class="nav-item" role="presentation">
+<a aria-selected="true" class="nav-link active" data-bs-toggle="tab" href="#dashboard" role="tab"><i class="ri-home-line"></i> dashboard</a>
+</li>
+<li class="nav-item" role="presentation">
+<a aria-selected="false" class="nav-link" data-bs-toggle="tab" href="#products" role="tab" tabindex="-1"><i class="ri-product-hunt-line"></i> products</a>
+</li>
+<li class="nav-item" role="presentation">
+<a aria-selected="false" class="nav-link" data-bs-toggle="tab" href="#orders" role="tab" tabindex="-1"><i class="ri-file-text-line"></i> orders</a>
+</li>
+<li class="nav-item" role="presentation">
+<a aria-selected="false" class="nav-link" data-bs-toggle="tab" href="#profile" role="tab" tabindex="-1"><i class="ri-user-3-line"></i> profile</a>
+</li>
+<li class="nav-item" role="presentation">
+<a aria-selected="false" class="nav-link" data-bs-toggle="tab" href="#settings" role="tab" tabindex="-1"><i class="ri-settings-line"></i> settings</a>
+</li>
+<li class="nav-item logout-cls">
+<a class="btn loagout-btn" href="./index.html">
+<i class="ri-logout-box-r-line"></i> Logout
+                                    </a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-9">
+<div class="faq-content tab-content" id="top-tabContent">
+<div class="tab-pane fade show active" id="dashboard" role="tabpanel">
+<div class="counter-section">
+<div class="row">
+<div class="col-md-4">
+<div class="counter-box">
+<img alt="" class="img-fluid" src="assets/images/icon/dashboard/order.png"/>
+<div>
+<h3>25</h3>
+<h5>total products</h5>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="counter-box">
+<img alt="" class="img-fluid" src="assets/images/icon/dashboard/sale.png"/>
+<div>
+<h3>12500</h3>
+<h5>total sales</h5>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="counter-box">
+<img alt="" class="img-fluid" src="assets/images/icon/dashboard/homework.png"/>
+<div>
+<h3>50</h3>
+<h5>order pending</h5>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-7">
+<div class="card">
+<div class="card-body" style="position: relative;">
+<div id="chart" style="min-height: 265px;"><div class="apexcharts-canvas apexcharts691db2 apexcharts-theme-light" id="apexcharts691db2" style="width: 434px; height: 250px;"><svg class="apexcharts-svg" height="250" id="SvgjsSvg1001" style="background: transparent;" transform="translate(0, 0)" version="1.1" width="434" xmlns="http://www.w3.org/2000/svg" xmlns:data="ApexChartsNS" xmlns:svgjs="http://svgjs.com/svgjs" xmlns:xlink="http://www.w3.org/1999/xlink"><g class="apexcharts-annotations-rects" id="SvgjsG1004"></g><g class="apexcharts-inner apexcharts-graphical" id="SvgjsG1003" transform="translate(-4.166666666666668, 73)"><defs id="SvgjsDefs1002"><clippath id="gridRectMask691db2"><rect fill="#ffffff" height="147.2" id="SvgjsRect1022" opacity="1" rx="0" ry="0" stroke="none" stroke-dasharray="0" stroke-width="0" width="372.96875" x="-3" y="-1"></rect></clippath><clippath id="gridRectMarkerMask691db2"><rect fill="#ffffff" height="149.2" id="SvgjsRect1023" opacity="1" rx="0" ry="0" stroke="none" stroke-dasharray="0" stroke-width="0" width="370.96875" x="-2" y="-2"></rect></clippath><lineargradient id="SvgjsLinearGradient1029" x1="0" x2="0" y1="0" y2="1"><stop id="SvgjsStop1030" offset="0" stop-color="rgba(255,76,59,0.6)" stop-opacity="0.6"></stop><stop id="SvgjsStop1031" offset="1" stop-color="rgba(255,255,255,0.5)" stop-opacity="0.5"></stop><stop id="SvgjsStop1032" offset="1" stop-color="rgba(255,255,255,0.5)" stop-opacity="0.5"></stop></lineargradient></defs><line class="apexcharts-xcrosshairs" fill="#b1b9c4" fill-opacity="0.9" filter="none" height="105.4671875" id="SvgjsLine1013" stroke="#b6b6b6" stroke-dasharray="3" stroke-width="1" width="1" x="0" x1="0" x2="0" y="0" y1="0" y2="105.4671875"></line><g class="apexcharts-xaxis" id="SvgjsG1035" transform="translate(0, 0)"><g class="apexcharts-xaxis-texts-g" id="SvgjsG1036" transform="translate(0, -4)"><text class="apexcharts-text apexcharts-xaxis-label" dominant-baseline="auto" fill="#373d3f" font-family="Helvetica, Arial, sans-serif" font-size="12px" font-weight="600" id="SvgjsText1038" style="font-family: Helvetica, Arial, sans-serif;" text-anchor="middle" x="42.08753927729772" y="174.2"><tspan id="SvgjsTspan1039">Nov '12</tspan><title>Nov '12</title></text><text class="apexcharts-text apexcharts-xaxis-label" dominant-baseline="auto" fill="#373d3f" font-family="Helvetica, Arial, sans-serif" font-size="12px" font-weight="400" id="SvgjsText1041" style="font-family: Helvetica, Arial, sans-serif;" text-anchor="middle" x="145.86503338570304" y="174.2"><tspan id="SvgjsTspan1042">16 Nov</tspan><title>16 Nov</title></text><text class="apexcharts-text apexcharts-xaxis-label" dominant-baseline="auto" fill="#373d3f" font-family="Helvetica, Arial, sans-serif" font-size="12px" font-weight="600" id="SvgjsText1044" style="font-family: Helvetica, Arial, sans-serif;" text-anchor="middle" x="249.64252749410855" y="174.2"><tspan id="SvgjsTspan1045">Dec '12</tspan><title>Dec '12</title></text><text class="apexcharts-text apexcharts-xaxis-label" dominant-baseline="auto" fill="#373d3f" font-family="Helvetica, Arial, sans-serif" font-size="12px" font-weight="400" id="SvgjsText1047" style="font-family: Helvetica, Arial, sans-serif;" text-anchor="middle" x="353.42002160251405" y="174.2"><tspan id="SvgjsTspan1048">16 Dec</tspan><title>16 Dec</title></text></g><line id="SvgjsLine1049" stroke="#e0e0e0" stroke-dasharray="0" stroke-width="1" x1="0" x2="366.96875" y1="146.2" y2="146.2"></line></g><g class="apexcharts-grid" id="SvgjsG1066"><g class="apexcharts-gridlines-horizontal" id="SvgjsG1067"><line class="apexcharts-gridline" id="SvgjsLine1073" stroke="transparent" stroke-dasharray="0" x1="0" x2="366.96875" y1="0" y2="0"></line><line class="apexcharts-gridline" id="SvgjsLine1074" stroke="transparent" stroke-dasharray="0" x1="0" x2="366.96875" y1="24.2" y2="24.2"></line><line class="apexcharts-gridline" id="SvgjsLine1075" stroke="transparent" stroke-dasharray="0" x1="0" x2="366.96875" y1="48.4" y2="48.4"></line><line class="apexcharts-gridline" id="SvgjsLine1076" stroke="transparent" stroke-dasharray="0" x1="0" x2="366.96875" y1="72.6" y2="72.6"></line><line class="apexcharts-gridline" id="SvgjsLine1077" stroke="transparent" stroke-dasharray="0" x1="0" x2="366.96875" y1="96.8" y2="96.8"></line><line class="apexcharts-gridline" id="SvgjsLine1078" stroke="transparent" stroke-dasharray="0" x1="0" x2="366.96875" y1="121" y2="121"></line><line class="apexcharts-gridline" id="SvgjsLine1079" stroke="transparent" stroke-dasharray="0" x1="0" x2="366.96875" y1="145.2" y2="145.2"></line></g><g class="apexcharts-gridlines-vertical" id="SvgjsG1068"></g><line class="apexcharts-xaxis-tick" id="SvgjsLine1069" stroke="#e0e0e0" stroke-dasharray="0" x1="42.08753927729772" x2="42.08753927729772" y1="146.2" y2="152.2"></line><line class="apexcharts-xaxis-tick" id="SvgjsLine1070" stroke="#e0e0e0" stroke-dasharray="0" x1="145.86503338570304" x2="145.86503338570304" y1="146.2" y2="152.2"></line><line class="apexcharts-xaxis-tick" id="SvgjsLine1071" stroke="#e0e0e0" stroke-dasharray="0" x1="249.64252749410855" x2="249.64252749410855" y1="146.2" y2="152.2"></line><line class="apexcharts-xaxis-tick" id="SvgjsLine1072" stroke="#e0e0e0" stroke-dasharray="0" x1="353.42002160251405" x2="353.42002160251405" y1="146.2" y2="152.2"></line><line id="SvgjsLine1081" stroke="transparent" stroke-dasharray="0" x1="0" x2="366.96875" y1="145.2" y2="145.2"></line><line id="SvgjsLine1080" stroke="transparent" stroke-dasharray="0" x1="0" x2="0" y1="1" y2="145.2"></line></g><g class="apexcharts-area-series apexcharts-plot-series" id="SvgjsG1025"><g class="apexcharts-series" data:longestseries="true" data:realindex="0" id="SvgjsG1026" rel="1" seriesname="seriesx1"><path class="apexcharts-area" clip-path="url(#gridRectMask691db2)" d="M-0.09434051114549491 844.6877198883003L-0.09434051114549491 803.4802131454189C10.962194240478167 803.4802131454189 23.82423410147925 749.1406438141466 34.88076885310291 749.1406438141466C37.07380053937537 749.1406438141466 39.606236774057464 767.2538335912377 41.79926846032993 767.2538335912377C43.99230014660239 767.2538335912377 46.524736381284484 758.1972387026926 48.717768067556946 758.1972387026926C55.29686312637433 758.1972387026926 62.89417183042063 785.3670233683288 69.47326688923802 785.3670233683288C74.20452969388138 785.3670233683288 79.66802638537148 758.1972387026926 84.39928919001484 758.1972387026926C86.59232087628729 758.1972387026926 89.1247571109694 776.3104284797828 91.31778879724186 776.3104284797828C93.51082048351432 776.3104284797828 96.04325671819643 749.1406438141466 98.23628840446888 749.1406438141466C100.42932009074133 749.1406438141466 102.96175632542344 767.2538335912377 105.1547880116959 767.2538335912377C107.90623054400996 767.2538335912377 111.08350007918982 803.4802131454189 113.83494261150388 803.4802131454189C117.31739570590875 803.4802131454189 121.33881065264933 821.5934029225091 124.8212637470542 821.5934029225091C134.28378935634092 821.5934029225091 145.2107827393211 812.536808033964 154.67330834860783 812.536808033964C156.8663400348803 812.536808033964 159.3987762695624 817.9707649670927 161.59180795583487 817.9707649670927C163.09444077791045 817.9707649670927 164.82962856834075 803.4802131454189 166.33226139041633 803.4802131454189C171.0635241950597 803.4802131454189 176.5270208865498 816.1594459893831 181.25828369119316 816.1594459893831C185.48190027216233 816.1594459893831 190.35918487229083 803.4802131454189 194.58280145326 803.4802131454189C197.7505138889869 803.4802131454189 201.40847733908328 807.1028511008371 204.57618977481016 807.1028511008371C207.11442089318106 807.1028511008371 210.04548134998905 803.4802131454189 212.58371246835995 803.4802131454189C215.12194358673085 803.4802131454189 218.05300404353883 807.1028511008371 220.59123516190974 807.1028511008371C222.22331777102224 807.1028511008371 224.10798964474975 839.7065926996002 225.74007225386225 839.7065926996002C229.65148640727182 839.7065926996002 234.16825057121292 807.1028511008371 238.0796647246225 807.1028511008371C240.27269641089495 807.1028511008371 242.80513264557706 817.9707649670927 244.99816433184952 817.9707649670927C257.34412049160557 817.9707649670927 271.60079855351967 767.2538335912377 283.9467547132757 767.2538335912377C286.1397863995482 767.2538335912377 288.67222263423025 758.1972387026926 290.86525432050274 758.1972387026926C292.3678871425783 758.1972387026926 294.10307493300866 740.0840489256016 295.6057077550842 740.0840489256016C300.3369705597276 740.0840489256016 305.80046725121764 767.2538335912377 310.53173005586103 767.2538335912377C312.7247617421335 767.2538335912377 315.2571979768156 785.3670233683288 317.45022966308807 785.3670233683288C322.18149246773146 785.3670233683288 327.6449891592215 767.2538335912377 332.3762519638649 767.2538335912377C334.5692836501374 767.2538335912377 337.1017198848194 776.3104284797828 339.29475157109187 776.3104284797828C345.8738466299093 776.3104284797828 353.47115533395555 765.4425146135281 360.05025039277297 765.4425146135281C362.24328207904546 765.4425146135281 364.7757183137275 785.3670233683288 366.96875 785.3670233683288C366.96875 785.3670233683288 366.96875 785.3670233683288 366.96875 844.6877198883003M332.25439003943114 785.3670233683288C332.25439003943114 785.3670233683288 332.25439003943114 785.3670233683288 332.25439003943114 785.3670233683288 " fill="url(#SvgjsLinearGradient1029)" fill-opacity="1" id="SvgjsPath1033" index="0" pathfrom="M -1 7559.7000000003L -1 7559.7000000003L 34.88076885310291 7559.7000000003L 41.79926846032993 7559.7000000003L 48.717768067556946 7559.7000000003L 69.47326688923802 7559.7000000003L 84.39928919001484 7559.7000000003L 91.31778879724186 7559.7000000003L 98.23628840446888 7559.7000000003L 105.1547880116959 7559.7000000003L 113.83494261150388 7559.7000000003L 124.8212637470542 7559.7000000003L 154.67330834860783 7559.7000000003L 161.59180795583487 7559.7000000003L 166.33226139041633 7559.7000000003L 181.25828369119316 7559.7000000003L 194.58280145326 7559.7000000003L 204.57618977481016 7559.7000000003L 212.58371246835995 7559.7000000003L 220.59123516190974 7559.7000000003L 225.74007225386225 7559.7000000003L 238.0796647246225 7559.7000000003L 244.99816433184952 7559.7000000003L 283.9467547132757 7559.7000000003L 290.86525432050274 7559.7000000003L 295.6057077550842 7559.7000000003L 310.53173005586103 7559.7000000003L 317.45022966308807 7559.7000000003L 332.3762519638649 7559.7000000003L 339.29475157109187 7559.7000000003L 360.05025039277297 7559.7000000003L 366.96875 7559.7000000003" pathto="M 0 145.2L 0 99.69999999999891C 12.208269098586017 99.69999999999891 22.672499754516892 39.69999999999618 34.88076885310291 39.69999999999618C 37.302243715632365 39.69999999999618 39.37779359780047 59.69999999999709 41.79926846032993 59.69999999999709C 44.220743322859384 59.69999999999709 46.29629320502749 49.69999999999709 48.717768067556946 49.69999999999709C 55.98219265514532 49.69999999999709 62.208842301649646 79.699999999998 69.47326688923802 79.699999999998C 74.6973746945099 79.699999999998 79.17518138474296 49.69999999999709 84.39928919001484 49.69999999999709C 86.82076405254429 49.69999999999709 88.89631393471241 69.69999999999709 91.31778879724186 69.69999999999709C 93.73926365977131 69.69999999999709 95.81481354193943 39.69999999999618 98.23628840446888 39.69999999999618C 100.65776326699833 39.69999999999618 102.73331314916645 59.69999999999709 105.1547880116959 59.69999999999709C 108.19284212162869 59.69999999999709 110.79688850157109 99.69999999999891 113.83494261150388 99.69999999999891C 117.68015500894649 99.69999999999891 120.9760513496116 119.69999999999891 124.8212637470542 119.69999999999891C 135.26947935759796 119.69999999999891 144.22509273806406 109.69999999999891 154.67330834860783 109.69999999999891C 157.0947832111373 109.69999999999891 159.1703330933054 115.69999999999982 161.59180795583487 115.69999999999982C 163.2509666579384 115.69999999999982 164.6731026883128 99.69999999999891 166.33226139041633 99.69999999999891C 171.55636919568823 99.69999999999891 176.03417588592126 113.69999999999982 181.25828369119316 113.69999999999982C 185.92186490791656 113.69999999999982 189.9192202365366 99.69999999999891 194.58280145326 99.69999999999891C 198.08048736580255 99.69999999999891 201.0785038622676 103.69999999999891 204.57618977481016 103.69999999999891C 207.3788227175526 103.69999999999891 209.7810795256175 99.69999999999891 212.58371246835995 99.69999999999891C 215.38634541110238 99.69999999999891 217.7886022191673 103.69999999999891 220.59123516190974 103.69999999999891C 222.39332814409312 103.69999999999891 223.93797927167887 139.69999999999982 225.74007225386225 139.69999999999982C 230.05892961862833 139.69999999999982 233.76080735985641 103.69999999999891 238.0796647246225 103.69999999999891C 240.50113958715195 103.69999999999891 242.57668946932006 115.69999999999982 244.99816433184952 115.69999999999982C 258.63017096534867 115.69999999999982 270.31474807977656 59.69999999999709 283.9467547132757 59.69999999999709C 286.3682295758052 59.69999999999709 288.4437794579733 49.69999999999709 290.86525432050274 49.69999999999709C 292.52441302260627 49.69999999999709 293.9465490529807 29.69999999999618 295.6057077550842 29.69999999999618C 300.8298155603561 29.69999999999618 305.30762225058913 59.69999999999709 310.53173005586103 59.69999999999709C 312.9532049183905 59.69999999999709 315.0287548005586 79.699999999998 317.45022966308807 79.699999999998C 322.67433746835997 79.699999999998 327.152144158593 59.69999999999709 332.3762519638649 59.69999999999709C 334.79772682639435 59.69999999999709 336.8732767085624 69.69999999999709 339.29475157109187 69.69999999999709C 346.55917615868026 69.69999999999709 352.7858258051846 57.69999999999709 360.05025039277297 57.69999999999709C 362.47172525530243 57.69999999999709 364.54727513747054 79.699999999998 366.96875 79.699999999998C 366.96875 79.699999999998 366.96875 79.699999999998 366.96875 145.2M 366.96875 79.699999999998z" stroke-dasharray="0" stroke-linecap="butt" stroke-opacity="1" stroke-width="0"></path><path class="apexcharts-area" clip-path="url(#gridRectMask691db2)" d="M-0.12235909385740817 1012.4988401763003C10.592117260258227 1012.4988401763003 19.775954135214487 959.8403858077427 30.49043048933012 959.8403858077427C32.61561588188198 959.8403858077427 38.82754172498493 977.3932039305955 40.952727117536796 977.3932039305955C43.07791251008865 977.3932039305955 45.74604133221195 968.6167948691691 47.871226724763815 968.6167948691691C54.2467829024194 968.6167948691691 60.55808668320304 994.9460220534484 66.93364286085861 994.9460220534484C71.51853356886403 994.9460220534484 77.98806391839092 968.6167948691691 82.57295462639632 968.6167948691691C84.69814001894818 968.6167948691691 88.34606206189687 986.169612992021 90.47124745444873 986.169612992021C92.59643284700059 986.169612992021 95.26456166912389 959.8403858077427 97.38974706167575 959.8403858077427C99.5149324542276 959.8403858077427 102.18306127635091 977.3932039305955 104.30824666890277 977.3932039305955C106.9745672308544 977.3932039305955 110.10652619817752 1012.4988401763003 112.77284676012916 1012.4988401763003C116.14756245293142 1012.4988401763003 120.10227175527952 1030.0516582991522 123.47698744808177 1030.0516582991522C132.64676886409256 1030.0516582991522 141.85085780536 1021.2752492377267 151.0206392213708 1021.2752492377267C153.14582461392266 1021.2752492377267 158.62008122048985 1026.5410946745833 160.74526661304174 1026.5410946745833C162.20141215979024 1026.5410946745833 164.2960782569392 1012.4988401763003 165.7522238036877 1012.4988401763003C170.33711451169313 1012.4988401763003 174.84705841956924 1024.7858128622975 179.43194912757463 1024.7858128622975C183.52489877248934 1024.7858128622975 188.85947588889186 1012.4988401763003 192.95242553380658 1012.4988401763003C196.02213776749258 1012.4988401763003 200.28369560153405 1016.009403800871 203.35340783522008 1016.009403800871C205.81311315067362 1016.009403800871 209.14421393208102 1012.4988401763003 211.60391924753458 1012.4988401763003C214.0636245629881 1012.4988401763003 217.1517366256308 1016.009403800871 219.61144194108437 1016.009403800871C221.19303245892098 1016.009403800871 223.5284746950349 1047.604476422005 225.11006521287152 1047.604476422005C228.90047110398544 1047.604476422005 232.77939748021666 1016.009403800871 236.56980337133058 1016.009403800871C238.69498876388244 1016.009403800871 242.0264375965045 1026.5410946745833 244.1516229890564 1026.5410946745833C256.1156296434224 1026.5410946745833 267.21703383281505 977.3932039305955 279.181040487181 977.3932039305955C281.3062258797329 977.3932039305955 287.89352758515776 968.6167948691691 290.0187129777096 968.6167948691691C291.4748585244581 968.6167948691691 293.56952462160706 951.0639767463172 295.0256701683556 951.0639767463172C299.610560876361 951.0639767463172 304.1205047842371 977.3932039305955 308.70539549224253 977.3932039305955C310.83058088479436 977.3932039305955 314.4785029277431 994.9460220534484 316.6036883202949 994.9460220534484C321.18857902830035 994.9460220534484 325.96502669224094 977.3932039305955 330.5499174002464 977.3932039305955C332.6751027927982 977.3932039305955 336.3230248357469 986.169612992021 338.44821022829876 986.169612992021C344.82376640595436 986.169612992021 351.13507018673795 975.6379221183106 357.51062636439354 975.6379221183106C359.63581175694543 975.6379221183106 363.997023264655 994.9460220534484 366.12220865720684 994.9460220534484C366.12220865720684 994.9460220534484 366.96875 994.9460220534484 366.96875 994.9460220534484 " fill="none" fill-opacity="1" id="SvgjsPath1034" index="0" pathfrom="M -1 7559.7000000003L -1 7559.7000000003L 34.88076885310291 7559.7000000003L 41.79926846032993 7559.7000000003L 48.717768067556946 7559.7000000003L 69.47326688923802 7559.7000000003L 84.39928919001484 7559.7000000003L 91.31778879724186 7559.7000000003L 98.23628840446888 7559.7000000003L 105.1547880116959 7559.7000000003L 113.83494261150388 7559.7000000003L 124.8212637470542 7559.7000000003L 154.67330834860783 7559.7000000003L 161.59180795583487 7559.7000000003L 166.33226139041633 7559.7000000003L 181.25828369119316 7559.7000000003L 194.58280145326 7559.7000000003L 204.57618977481016 7559.7000000003L 212.58371246835995 7559.7000000003L 220.59123516190974 7559.7000000003L 225.74007225386225 7559.7000000003L 238.0796647246225 7559.7000000003L 244.99816433184952 7559.7000000003L 283.9467547132757 7559.7000000003L 290.86525432050274 7559.7000000003L 295.6057077550842 7559.7000000003L 310.53173005586103 7559.7000000003L 317.45022966308807 7559.7000000003L 332.3762519638649 7559.7000000003L 339.29475157109187 7559.7000000003L 360.05025039277297 7559.7000000003L 366.96875 7559.7000000003" pathto="M 0 99.69999999999891C 12.208269098586017 99.69999999999891 22.672499754516892 39.69999999999618 34.88076885310291 39.69999999999618C 37.302243715632365 39.69999999999618 39.37779359780047 59.69999999999709 41.79926846032993 59.69999999999709C 44.220743322859384 59.69999999999709 46.29629320502749 49.69999999999709 48.717768067556946 49.69999999999709C 55.98219265514532 49.69999999999709 62.208842301649646 79.699999999998 69.47326688923802 79.699999999998C 74.6973746945099 79.699999999998 79.17518138474296 49.69999999999709 84.39928919001484 49.69999999999709C 86.82076405254429 49.69999999999709 88.89631393471241 69.69999999999709 91.31778879724186 69.69999999999709C 93.73926365977131 69.69999999999709 95.81481354193943 39.69999999999618 98.23628840446888 39.69999999999618C 100.65776326699833 39.69999999999618 102.73331314916645 59.69999999999709 105.1547880116959 59.69999999999709C 108.19284212162869 59.69999999999709 110.79688850157109 99.69999999999891 113.83494261150388 99.69999999999891C 117.68015500894649 99.69999999999891 120.9760513496116 119.69999999999891 124.8212637470542 119.69999999999891C 135.26947935759796 119.69999999999891 144.22509273806406 109.69999999999891 154.67330834860783 109.69999999999891C 157.0947832111373 109.69999999999891 159.1703330933054 115.69999999999982 161.59180795583487 115.69999999999982C 163.2509666579384 115.69999999999982 164.6731026883128 99.69999999999891 166.33226139041633 99.69999999999891C 171.55636919568823 99.69999999999891 176.03417588592126 113.69999999999982 181.25828369119316 113.69999999999982C 185.92186490791656 113.69999999999982 189.9192202365366 99.69999999999891 194.58280145326 99.69999999999891C 198.08048736580255 99.69999999999891 201.0785038622676 103.69999999999891 204.57618977481016 103.69999999999891C 207.3788227175526 103.69999999999891 209.7810795256175 99.69999999999891 212.58371246835995 99.69999999999891C 215.38634541110238 99.69999999999891 217.7886022191673 103.69999999999891 220.59123516190974 103.69999999999891C 222.39332814409312 103.69999999999891 223.93797927167887 139.69999999999982 225.74007225386225 139.69999999999982C 230.05892961862833 139.69999999999982 233.76080735985641 103.69999999999891 238.0796647246225 103.69999999999891C 240.50113958715195 103.69999999999891 242.57668946932006 115.69999999999982 244.99816433184952 115.69999999999982C 258.63017096534867 115.69999999999982 270.31474807977656 59.69999999999709 283.9467547132757 59.69999999999709C 286.3682295758052 59.69999999999709 288.4437794579733 49.69999999999709 290.86525432050274 49.69999999999709C 292.52441302260627 49.69999999999709 293.9465490529807 29.69999999999618 295.6057077550842 29.69999999999618C 300.8298155603561 29.69999999999618 305.30762225058913 59.69999999999709 310.53173005586103 59.69999999999709C 312.9532049183905 59.69999999999709 315.0287548005586 79.699999999998 317.45022966308807 79.699999999998C 322.67433746835997 79.699999999998 327.152144158593 59.69999999999709 332.3762519638649 59.69999999999709C 334.79772682639435 59.69999999999709 336.8732767085624 69.69999999999709 339.29475157109187 69.69999999999709C 346.55917615868026 69.69999999999709 352.7858258051846 57.69999999999709 360.05025039277297 57.69999999999709C 362.47172525530243 57.69999999999709 364.54727513747054 79.699999999998 366.96875 79.699999999998" stroke="#ff4c3b" stroke-dasharray="0" stroke-linecap="butt" stroke-opacity="1" stroke-width="2"></path><g class="apexcharts-series-markers-wrap apexcharts-element-hidden" id="SvgjsG1027"><g class="apexcharts-series-markers"><circle class="apexcharts-marker wxsq3ve2m no-pointer-events" cx="0" cy="0" default-marker-size="0" fill="#ff4c3b" fill-opacity="1" id="SvgjsCircle1087" r="0" stroke="#ffffff" stroke-opacity="0.9" stroke-width="2"></circle></g></g></g><g class="apexcharts-datalabels" data:realindex="0" id="SvgjsG1028"></g></g><line class="apexcharts-ycrosshairs" id="SvgjsLine1082" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" x1="0" x2="366.96875" y1="0" y2="0"></line><line class="apexcharts-ycrosshairs-hidden" id="SvgjsLine1083" stroke-dasharray="0" stroke-width="0" x1="0" x2="366.96875" y1="0" y2="0"></line><g class="apexcharts-yaxis-annotations apexcharts-element-hidden" id="SvgjsG1084"></g><g class="apexcharts-xaxis-annotations apexcharts-element-hidden" id="SvgjsG1085"></g><g class="apexcharts-point-annotations apexcharts-element-hidden" id="SvgjsG1086"></g></g><text class="apexcharts-title-text" dominant-baseline="auto" fill="#373d3f" font-family="Helvetica, Arial, sans-serif" font-size="14px" font-weight="900" id="SvgjsText1005" style="font-family: Helvetica, Arial, sans-serif; opacity: 1;" text-anchor="start" x="10" y="16.5">Total Revenue</text><text class="apexcharts-subtitle-text" dominant-baseline="auto" fill="#373d3f" font-family="Helvetica, Arial, sans-serif" font-size="12px" font-weight="400" id="SvgjsText1006" style="font-family: Helvetica, Arial, sans-serif; opacity: 1;" text-anchor="start" x="10" y="44.5">Price Movements</text><rect fill="#fefefe" height="0" id="SvgjsRect1012" opacity="1" rx="0" ry="0" stroke="none" stroke-dasharray="0" stroke-width="0" width="0" x="0" y="0"></rect><g class="apexcharts-yaxis" id="SvgjsG1050" rel="0" transform="translate(393.8020833333333, 0)"><g class="apexcharts-yaxis-texts-g" id="SvgjsG1051"><text class="apexcharts-text apexcharts-yaxis-label" dominant-baseline="auto" fill="#373d3f" font-family="Helvetica, Arial, sans-serif" font-size="11px" font-weight="400" id="SvgjsText1052" style="font-family: Helvetica, Arial, sans-serif;" text-anchor="start" x="-20" y="74.6"><tspan id="SvgjsTspan1053">37.80</tspan></text><text class="apexcharts-text apexcharts-yaxis-label" dominant-baseline="auto" fill="#373d3f" font-family="Helvetica, Arial, sans-serif" font-size="11px" font-weight="400" id="SvgjsText1054" style="font-family: Helvetica, Arial, sans-serif;" text-anchor="start" x="-20" y="98.8"><tspan id="SvgjsTspan1055">37.68</tspan></text><text class="apexcharts-text apexcharts-yaxis-label" dominant-baseline="auto" fill="#373d3f" font-family="Helvetica, Arial, sans-serif" font-size="11px" font-weight="400" id="SvgjsText1056" style="font-family: Helvetica, Arial, sans-serif;" text-anchor="start" x="-20" y="123"><tspan id="SvgjsTspan1057">37.56</tspan></text><text class="apexcharts-text apexcharts-yaxis-label" dominant-baseline="auto" fill="#373d3f" font-family="Helvetica, Arial, sans-serif" font-size="11px" font-weight="400" id="SvgjsText1058" style="font-family: Helvetica, Arial, sans-serif;" text-anchor="start" x="-20" y="147.2"><tspan id="SvgjsTspan1059">37.44</tspan></text><text class="apexcharts-text apexcharts-yaxis-label" dominant-baseline="auto" fill="#373d3f" font-family="Helvetica, Arial, sans-serif" font-size="11px" font-weight="400" id="SvgjsText1060" style="font-family: Helvetica, Arial, sans-serif;" text-anchor="start" x="-20" y="171.39999999999998"><tspan id="SvgjsTspan1061">37.31</tspan></text><text class="apexcharts-text apexcharts-yaxis-label" dominant-baseline="auto" fill="#373d3f" font-family="Helvetica, Arial, sans-serif" font-size="11px" font-weight="400" id="SvgjsText1062" style="font-family: Helvetica, Arial, sans-serif;" text-anchor="start" x="-20" y="195.59999999999997"><tspan id="SvgjsTspan1063">37.19</tspan></text><text class="apexcharts-text apexcharts-yaxis-label" dominant-baseline="auto" fill="#373d3f" font-family="Helvetica, Arial, sans-serif" font-size="11px" font-weight="400" id="SvgjsText1064" style="font-family: Helvetica, Arial, sans-serif;" text-anchor="start" x="-20" y="219.79999999999995"><tspan id="SvgjsTspan1065">37.07</tspan></text></g></g></svg><div class="apexcharts-legend"></div><div class="apexcharts-tooltip apexcharts-theme-light"><div class="apexcharts-tooltip-title" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"></div><div class="apexcharts-tooltip-series-group"><span class="apexcharts-tooltip-marker" style="background-color: rgb(255, 76, 59);"></span><div class="apexcharts-tooltip-text" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"><div class="apexcharts-tooltip-y-group"><span class="apexcharts-tooltip-text-label"></span><span class="apexcharts-tooltip-text-value"></span></div><div class="apexcharts-tooltip-z-group"><span class="apexcharts-tooltip-text-z-label"></span><span class="apexcharts-tooltip-text-z-value"></span></div></div></div></div><div class="apexcharts-xaxistooltip apexcharts-xaxistooltip-bottom apexcharts-theme-light"><div class="apexcharts-xaxistooltip-text" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"></div></div><div class="apexcharts-toolbar" style="top: 0px; right: 3px;"><div class="apexcharts-menu-icon" title="Menu"><svg height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></div><div class="apexcharts-menu"><div class="apexcharts-menu-item exportSVG" title="Download SVG">Download SVG</div><div class="apexcharts-menu-item exportPNG" title="Download PNG">Download PNG</div><div class="apexcharts-menu-item exportCSV" title="Download CSV">Download CSV</div></div></div></div></div>
+<div class="resize-triggers"><div class="expand-trigger"><div style="width: 474px; height: 304px;"></div></div><div class="contract-trigger"></div></div></div>
+</div>
+</div>
+<div class="col-md-5">
+<div class="card">
+<div class="card-body" style="position: relative;">
+<div id="chart-order" style="min-height: 252.7px;"><div class="apexcharts-canvas apexcharts691e29 apexcharts-theme-light" id="apexcharts691e29" style="width: 292px; height: 252.7px;"><svg class="apexcharts-svg" height="252.7" id="SvgjsSvg1088" style="background: transparent;" transform="translate(0, 0)" version="1.1" width="292" xmlns="http://www.w3.org/2000/svg" xmlns:data="ApexChartsNS" xmlns:svgjs="http://svgjs.com/svgjs" xmlns:xlink="http://www.w3.org/1999/xlink"><g class="apexcharts-annotations-rects" id="SvgjsG1091"></g><foreignobject height="252.7" width="292" x="0" y="0"><div class="apexcharts-legend apexcharts-align-center position-right" style="position: absolute; left: auto; top: 20px; right: 5px;" xmlns="http://www.w3.org/1999/xhtml"><div class="apexcharts-legend-series" data:collapsed="false" rel="1" style="margin: 0px 5px;"><span class="apexcharts-legend-marker" data:collapsed="false" rel="1" style="background: rgb(247, 191, 193); color: rgb(247, 191, 193); height: 12px; width: 12px; left: 0px; top: 0px; border-width: 0px; border-color: rgb(255, 255, 255); border-radius: 12px;"></span><span class="apexcharts-legend-text" data:collapsed="false" data:default-text="Recent%20Order" i="0" rel="1" style="color: rgb(55, 61, 63); font-size: 12px; font-weight: 400; font-family: Helvetica, Arial, sans-serif;">Recent Order</span></div><div class="apexcharts-legend-series" data:collapsed="false" rel="2" style="margin: 0px 5px;"><span class="apexcharts-legend-marker" data:collapsed="false" rel="2" style="background: rgb(200, 200, 200); color: rgb(200, 200, 200); height: 12px; width: 12px; left: 0px; top: 0px; border-width: 0px; border-color: rgb(255, 255, 255); border-radius: 12px;"></span><span class="apexcharts-legend-text" data:collapsed="false" data:default-text="Panding%20Payments" i="1" rel="2" style="color: rgb(55, 61, 63); font-size: 12px; font-weight: 400; font-family: Helvetica, Arial, sans-serif;">Panding Payments</span></div><div class="apexcharts-legend-series" data:collapsed="false" rel="3" style="margin: 0px 5px;"><span class="apexcharts-legend-marker" data:collapsed="false" rel="3" style="background: rgb(255, 129, 129); color: rgb(255, 129, 129); height: 12px; width: 12px; left: 0px; top: 0px; border-width: 0px; border-color: rgb(255, 255, 255); border-radius: 12px;"></span><span class="apexcharts-legend-text" data:collapsed="false" data:default-text="Recived%20Payments" i="2" rel="3" style="color: rgb(55, 61, 63); font-size: 12px; font-weight: 400; font-family: Helvetica, Arial, sans-serif;">Recived Payments</span></div></div><style type="text/css">	
+    	
+      .apexcharts-legend {	
+        display: flex;	
+        overflow: auto;	
+        padding: 0 10px;	
+      }	
+      .apexcharts-legend.position-bottom, .apexcharts-legend.position-top {	
+        flex-wrap: wrap	
+      }	
+      .apexcharts-legend.position-right, .apexcharts-legend.position-left {	
+        flex-direction: column;	
+        bottom: 0;	
+      }	
+      .apexcharts-legend.position-bottom.apexcharts-align-left, .apexcharts-legend.position-top.apexcharts-align-left, .apexcharts-legend.position-right, .apexcharts-legend.position-left {	
+        justify-content: flex-start;	
+      }	
+      .apexcharts-legend.position-bottom.apexcharts-align-center, .apexcharts-legend.position-top.apexcharts-align-center {	
+        justify-content: center;  	
+      }	
+      .apexcharts-legend.position-bottom.apexcharts-align-right, .apexcharts-legend.position-top.apexcharts-align-right {	
+        justify-content: flex-end;	
+      }	
+      .apexcharts-legend-series {	
+        cursor: pointer;	
+        line-height: normal;	
+      }	
+      .apexcharts-legend.position-bottom .apexcharts-legend-series, .apexcharts-legend.position-top .apexcharts-legend-series{	
+        display: flex;	
+        align-items: center;	
+      }	
+      .apexcharts-legend-text {	
+        position: relative;	
+        font-size: 14px;	
+      }	
+      .apexcharts-legend-text *, .apexcharts-legend-marker * {	
+        pointer-events: none;	
+      }	
+      .apexcharts-legend-marker {	
+        position: relative;	
+        display: inline-block;	
+        cursor: pointer;	
+        margin-right: 3px;	
+        border-style: solid;
+      }	
+      	
+      .apexcharts-legend.apexcharts-align-right .apexcharts-legend-series, .apexcharts-legend.apexcharts-align-left .apexcharts-legend-series{	
+        display: inline-block;	
+      }	
+      .apexcharts-legend-series.apexcharts-no-click {	
+        cursor: auto;	
+      }	
+      .apexcharts-legend .apexcharts-hidden-zero-series, .apexcharts-legend .apexcharts-hidden-null-series {	
+        display: none !important;	
+      }	
+      .apexcharts-inactive-legend {	
+        opacity: 0.45;	
+      }</style></foreignobject><g class="apexcharts-inner apexcharts-graphical" id="SvgjsG1090" transform="translate(22, 24)"><defs id="SvgjsDefs1089"><clippath id="gridRectMask691e29"><rect fill="#ffffff" height="228" id="SvgjsRect1093" opacity="1" rx="0" ry="0" stroke="none" stroke-dasharray="0" stroke-width="0" width="97.265625" x="-3" y="-1"></rect></clippath><clippath id="gridRectMarkerMask691e29"><rect fill="#ffffff" height="230" id="SvgjsRect1094" opacity="1" rx="0" ry="0" stroke="none" stroke-dasharray="0" stroke-width="0" width="95.265625" x="-2" y="-2"></rect></clippath></defs><g class="apexcharts-pie" id="SvgjsG1096"><g id="SvgjsG1097" transform="translate(0, 0) scale(1)"><circle cx="45.6328125" cy="113" fill="transparent" id="SvgjsCircle1098" r="67.75853658536586"></circle><g class="apexcharts-slices" id="SvgjsG1099"><g class="apexcharts-series apexcharts-pie-series" data:realindex="0" id="SvgjsG1100" rel="1" seriesname="RecentxOrder"><path class="apexcharts-pie-area apexcharts-donut-slice-0" d="M 45.63281250000001 8.756097560975604 A 104.2439024390244 104.2439024390244 0 0 1 144.77465519867042 80.78686258637742 L 110.07501025413576 92.06146068114533 A 67.75853658536586 67.75853658536586 0 0 0 45.63281250000001 45.24146341463414 L 45.63281250000001 8.756097560975604 z" data:angle="72" data:pathorig="M 45.63281250000001 8.756097560975604 A 104.2439024390244 104.2439024390244 0 0 1 144.77465519867042 80.78686258637742 L 110.07501025413576 92.06146068114533 A 67.75853658536586 67.75853658536586 0 0 0 45.63281250000001 45.24146341463414 L 45.63281250000001 8.756097560975604 z" data:startangle="0" data:strokewidth="2" data:value="20" fill="rgba(247,191,193,1)" fill-opacity="1" id="SvgjsPath1101" index="0" j="0" stroke="#ffffff" stroke-dasharray="0" stroke-linecap="butt" stroke-opacity="1" stroke-width="2"></path></g><g class="apexcharts-series apexcharts-pie-series" data:realindex="1" id="SvgjsG1102" rel="2" seriesname="PandingxPayments"><path class="apexcharts-pie-area apexcharts-donut-slice-1" d="M 144.77465519867042 80.78686258637742 A 104.2439024390244 104.2439024390244 0 0 1 77.84594991362258 212.14184269867042 L 66.57135181885468 177.44219775413575 A 67.75853658536586 67.75853658536586 0 0 0 110.07501025413576 92.06146068114533 L 144.77465519867042 80.78686258637742 z" data:angle="90" data:pathorig="M 144.77465519867042 80.78686258637742 A 104.2439024390244 104.2439024390244 0 0 1 77.84594991362258 212.14184269867042 L 66.57135181885468 177.44219775413575 A 67.75853658536586 67.75853658536586 0 0 0 110.07501025413576 92.06146068114533 L 144.77465519867042 80.78686258637742 z" data:startangle="72" data:strokewidth="2" data:value="25" fill="rgba(200,200,200,1)" fill-opacity="1" id="SvgjsPath1103" index="0" j="1" stroke="#ffffff" stroke-dasharray="0" stroke-linecap="butt" stroke-opacity="1" stroke-width="1.5257142857142858"></path></g><g class="apexcharts-series apexcharts-pie-series" data:realindex="2" id="SvgjsG1104" rel="3" seriesname="RecivedxPayments"><path class="apexcharts-pie-area apexcharts-donut-slice-2" d="M 77.84594991362258 212.14184269867042 A 104.2439024390244 104.2439024390244 0 0 1 -54.471948782518425 83.91687836069111 L -19.435282333636977 94.09597093444923 A 67.75853658536586 67.75853658536586 0 0 0 66.57135181885468 177.44219775413575 L 77.84594991362258 212.14184269867042 z" data:angle="198" data:pathorig="M 77.84594991362258 212.14184269867042 A 104.2439024390244 104.2439024390244 0 0 1 -54.471948782518425 83.91687836069111 L -19.435282333636977 94.09597093444923 A 67.75853658536586 67.75853658536586 0 0 0 66.57135181885468 177.44219775413575 L 77.84594991362258 212.14184269867042 z" data:startangle="162" data:strokewidth="2" data:value="55" fill="rgba(255,129,129,1)" fill-opacity="1" id="SvgjsPath1105" index="0" j="2" stroke-dasharray="0" stroke-linecap="butt" stroke-opacity="1" stroke-width="0"></path></g></g></g></g><line class="apexcharts-ycrosshairs" id="SvgjsLine1106" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" x1="0" x2="91.265625" y1="0" y2="0"></line><line class="apexcharts-ycrosshairs-hidden" id="SvgjsLine1107" stroke-dasharray="0" stroke-width="0" x1="0" x2="91.265625" y1="0" y2="0"></line></g><text class="apexcharts-title-text" dominant-baseline="auto" fill="#373d3f" font-family="Helvetica, Arial, sans-serif" font-size="14px" font-weight="900" id="SvgjsText1092" style="font-family: Helvetica, Arial, sans-serif; opacity: 1;" text-anchor="start" x="10" y="16.5">Overall Sales</text></svg><div class="apexcharts-tooltip apexcharts-theme-dark"><div class="apexcharts-tooltip-series-group"><span class="apexcharts-tooltip-marker" style="background-color: rgb(247, 191, 193);"></span><div class="apexcharts-tooltip-text" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"><div class="apexcharts-tooltip-y-group"><span class="apexcharts-tooltip-text-label"></span><span class="apexcharts-tooltip-text-value"></span></div><div class="apexcharts-tooltip-z-group"><span class="apexcharts-tooltip-text-z-label"></span><span class="apexcharts-tooltip-text-z-value"></span></div></div></div><div class="apexcharts-tooltip-series-group"><span class="apexcharts-tooltip-marker" style="background-color: rgb(200, 200, 200);"></span><div class="apexcharts-tooltip-text" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"><div class="apexcharts-tooltip-y-group"><span class="apexcharts-tooltip-text-label"></span><span class="apexcharts-tooltip-text-value"></span></div><div class="apexcharts-tooltip-z-group"><span class="apexcharts-tooltip-text-z-label"></span><span class="apexcharts-tooltip-text-z-value"></span></div></div></div><div class="apexcharts-tooltip-series-group"><span class="apexcharts-tooltip-marker" style="background-color: rgb(255, 129, 129);"></span><div class="apexcharts-tooltip-text" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"><div class="apexcharts-tooltip-y-group"><span class="apexcharts-tooltip-text-label"></span><span class="apexcharts-tooltip-text-value"></span></div><div class="apexcharts-tooltip-z-group"><span class="apexcharts-tooltip-text-z-label"></span><span class="apexcharts-tooltip-text-z-value"></span></div></div></div></div></div></div>
+<div class="resize-triggers"><div class="expand-trigger"><div style="width: 331px; height: 292px;"></div></div><div class="contract-trigger"></div></div></div>
+</div>
+</div>
+</div>
+<div class="row g-sm-4 g-3">
+<div class="col-12">
+<div class="dashboard-table">
+<div class="wallet-table">
+<div class="top-sec mb-3">
+<h3>trending products</h3>
+</div>
+<div class="table-responsive">
+<table class="table cart-table order-table">
+<thead>
+<tr>
+<th>image</th>
+<th>product name</th>
+<th>price</th>
+<th>sales</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="image-box">
+<img alt="" class="blur-up lazyloaded" src="assets/images/fashion-1/product/5.jpg"/>
+</td>
+<td>neck velvet dress</td>
+<td>$205</td>
+<td>1000</td>
+</tr>
+<tr>
+<td class="image-box">
+<img alt="" class="blur-up lazyloaded" src="assets/images/fashion-1/product/13.jpg"/>
+</td>
+<td>belted trench coat</td>
+<td>$350</td>
+<td>800</td>
+</tr>
+<tr>
+<td class="image-box">
+<img alt="" class="blur-up lazyloaded" src="assets/images/fashion-1/product/9.jpg"/>
+</td>
+<td>man print tee</td>
+<td>$150</td>
+<td>750</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12">
+<div class="dashboard-table">
+<div class="wallet-table">
+<div class="top-sec mb-3">
+<h3>recent orders</h3>
+</div>
+<div class="table-responsive">
+<table class="table cart-table order-table">
+<thead>
+<tr>
+<th>order id</th>
+<th>product details</th>
+<th>status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#21515</td>
+<td>neck velvet dress</td>
+<td>
+<span class="badge bg-pending custom-badge rounded-0">pending</span>
+</td>
+</tr>
+<tr>
+<td>#78153</td>
+<td>belted trench coat</td>
+<td>
+<span class="badge bg-debit custom-badge rounded-0">cancelled</span>
+</td>
+</tr>
+<tr>
+<td>#51512</td>
+<td>man print tee</td>
+<td>
+<span class="badge bg-credit custom-badge rounded-0">shipped</span>
+</td>
+</tr>
+<tr>
+<td>#78153</td>
+<td>belted trench coat</td>
+<td>
+<span class="badge bg-pending custom-badge rounded-0">pending</span>
+</td>
+</tr>
+<tr>
+<td>#51512</td>
+<td>man print tee</td>
+<td>
+<span class="badge bg-credit custom-badge rounded-0">shipped</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tab-pane fade" id="products" role="tabpanel">
+<div class="dashboard-table">
+<div class="wallet-table">
+<div class="top-sec">
+<h3>all products</h3>
+<a class="btn btn-sm btn-solid" href="#!">+ add new</a>
+</div>
+<div class="table-responsive">
+<table class="table cart-table order-table">
+<thead>
+<tr>
+<th>image</th>
+<th>product name</th>
+<th>category</th>
+<th>price</th>
+<th>stock</th>
+<th>sales</th>
+<th>edit/delete</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="image-box">
+<img alt="" class="blur-up lazyloaded" src="assets/images/fashion-1/product/5.jpg"/>
+</td>
+<td>neck velvet dress</td>
+<td>women clothes</td>
+<td class="fw-bold text-theme">$205</td>
+<td>1000</td>
+<td>2000</td>
+<td>
+<a href="#!">
+<i class="fa fa-pencil-square-o me-1"></i>
+</a>
+<a href="#!">
+<i class="fa fa-trash-o ms-1 text-theme"></i>
+</a>
+</td>
+</tr>
+<tr>
+<td class="image-box">
+<img alt="" class="blur-up lazyloaded" src="assets/images/fashion-1/product/9.jpg"/>
+</td>
+<td>belted trench coat</td>
+<td>women clothes</td>
+<td class="fw-bold text-theme">$350</td>
+<td>800</td>
+<td>350</td>
+<td>
+<a href="#!">
+<i class="fa fa-pencil-square-o me-1"></i>
+</a>
+<a href="#!">
+<i class="fa fa-trash-o ms-1 text-theme"></i>
+</a>
+</td>
+</tr>
+<tr>
+<td class="image-box">
+<img alt="" class="blur-up lazyloaded" src="assets/images/fashion-1/product/1.jpg"/>
+</td>
+<td>men print tee</td>
+<td>men clothes</td>
+<td class="fw-bold text-theme">$150</td>
+<td>750</td>
+<td>150</td>
+<td>
+<a href="#!">
+<i class="fa fa-pencil-square-o me-1"></i>
+</a>
+<a href="#!">
+<i class="fa fa-trash-o ms-1 text-theme"></i>
+</a>
+</td>
+</tr>
+<tr>
+<td class="image-box">
+<img alt="" class="blur-up lazyloaded" src="assets/images/fashion-1/product/15.jpg"/>
+</td>
+<td>woman print tee</td>
+<td>women clothes</td>
+<td class="fw-bold text-theme">$150</td>
+<td>750</td>
+<td>150</td>
+<td>
+<a href="#!">
+<i class="fa fa-pencil-square-o me-1"></i>
+</a>
+<a href="#!">
+<i class="fa fa-trash-o ms-1 text-theme"></i>
+</a>
+</td>
+</tr>
+<tr>
+<td class="image-box">
+<img alt="" class="blur-up lazyloaded" src="assets/images/fashion-1/product/12.jpg"/>
+</td>
+<td>men print tee</td>
+<td>men clothes</td>
+<td class="fw-bold text-theme">$150</td>
+<td>750</td>
+<td>150</td>
+<td>
+<a href="#!">
+<i class="fa fa-pencil-square-o me-1"></i>
+</a>
+<a href="#!">
+<i class="fa fa-trash-o ms-1 text-theme"></i>
+</a>
+</td>
+</tr>
+<tr>
+<td class="image-box">
+<img alt="" class="blur-up lazyloaded" src="assets/images/fashion-1/product/18.jpg"/>
+</td>
+<td>men print tee</td>
+<td>men clothes</td>
+<td class="fw-bold text-theme">$150</td>
+<td>750</td>
+<td>150</td>
+<td>
+<a href="#!">
+<i class="fa fa-pencil-square-o me-1"></i>
+</a>
+<a href="#!">
+<i class="fa fa-trash-o ms-1 text-theme"></i>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="tab-pane fade" id="orders" role="tabpanel">
+<div class="dashboard-table">
+<div class="wallet-table">
+<div class="top-sec">
+<h3>orders</h3>
+<a class="btn btn-sm btn-solid" href="#!">add product</a>
+</div>
+<div class="table-responsive">
+<table class="table cart-table order-table">
+<thead>
+<tr>
+<th>order id</th>
+<th>product details</th>
+<th>status</th>
+<th>price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#125021</td>
+<td>neck velvet dress</td>
+<td><span class="badge bg-credit custom-badge rounded-0">shipped</span>
+</td>
+<td>$205</td>
+</tr>
+<tr>
+<td>#521214</td>
+<td>belted trench coat</td>
+<td><span class="badge bg-credit custom-badge rounded-0">shipped</span>
+</td>
+<td>$350</td>
+</tr>
+<tr>
+<td>#521021</td>
+<td>men print tee</td>
+<td><span class="badge bg-pending custom-badge rounded-0">pending</span>
+</td>
+<td>$150</td>
+</tr>
+<tr>
+<td>#245021</td>
+<td>woman print tee</td>
+<td><span class="badge bg-credit custom-badge rounded-0">shipped</span>
+</td>
+<td>$150</td>
+</tr>
+<tr>
+<td>#122141</td>
+<td>men print tee</td>
+<td><span class="badge bg-credit custom-badge rounded-0">shipped</span>
+</td>
+<td>$150</td>
+</tr>
+<tr>
+<td>#125015</td>
+<td>men print tee</td>
+<td><span class="badge bg-pending custom-badge rounded-0">pending</span>
+</td>
+<td>$150</td>
+</tr>
+<tr>
+<td>#245021</td>
+<td>woman print tee</td>
+<td>
+<span class="badge bg-credit custom-badge rounded-0">shipped</span>
+</td>
+<td>$150</td>
+</tr>
+<tr>
+<td>#122141</td>
+<td>men print tee</td>
+<td><span class="badge bg-debit custom-badge rounded-0">cancelled</span>
+</td>
+<td>$150</td>
+</tr>
+<tr>
+<td>#125015</td>
+<td>men print tee</td>
+<td><span class="badge bg-pending custom-badge rounded-0">pending</span>
+</td>
+<td>$150</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="tab-pane fade" id="profile" role="tabpanel">
+<div class="dashboard-box">
+<div class="dashboard-title">
+<h4>profile</h4>
+<span data-bs-target="#edit-profile" data-toggle="modal">edit</span>
+</div>
+<div class="dashboard-detail">
+<ul>
+<li class="details">
+<h5><span>company name</span> Fashion Store</h5>
+</li>
+<li class="details">
+<h5><span>email address</span> mark.enderess@mail.com</h5>
+</li>
+<li class="details">
+<h5><span>Country / Region</span> Downers Grove, IL</h5>
+</li>
+<li class="details">
+<h5><span>Year Established</span> 2018</h5>
+</li>
+<li class="details">
+<h5><span>Total Employees</span> Fashion Store</h5>
+</li>
+<li class="details">
+<h5><span>category</span> clothing</h5>
+</li>
+<li class="details">
+<h5><span>street address</span> 549 Sulphur Springs Road</h5>
+</li>
+<li class="details">
+<h5><span>city/state</span> Downers Grove, IL</h5>
+</li>
+<li class="details">
+<h5><span>zip</span> 96369</h5>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="tab-pane fade" id="settings" role="tabpanel">
+<div class="dashboard-box">
+<div class="dashboard-title">
+<h4>settings</h4>
+</div>
+<div class="dashboard-detail">
+<div class="account-setting">
+<h5>Notifications</h5>
+<ul class="setting-list">
+<li class="form-check">
+<input checked="" class="radio_animated form-check-input" id="exampleRadios1" name="exampleRadios" type="radio" value="option1"/>
+<label class="form-check-label" for="exampleRadios1">Allow Desktop
+                                                    Notifications</label>
+</li>
+<li class="form-check">
+<input class="radio_animated form-check-input" id="exampleRadios2" name="exampleRadios" type="radio" value="option2"/>
+<label class="form-check-label" for="exampleRadios2">Enable
+                                                    Notifications</label>
+</li>
+<li class="form-check">
+<input class="radio_animated form-check-input" id="exampleRadios3" name="exampleRadios" type="radio" value="option3"/>
+<label class="form-check-label" for="exampleRadios3">Get
+                                                    notification for my
+                                                    own activity</label>
+</li>
+<li class="form-check">
+<input class="radio_animated form-check-input" id="exampleRadios4" name="exampleRadios" type="radio" value="option4"/>
+<label class="form-check-label" for="exampleRadios4">DND</label>
+</li>
+</ul>
+</div>
+<div class="account-setting">
+<h5>deactivate account</h5>
+<ul class="setting-list">
+<li class="form-check">
+<input checked="" class="radio_animated form-check-input" id="exampleRadios45" name="exampleRadios1" type="radio" value="option4"/>
+<label class="form-check-label" for="exampleRadios45">
+                                                    I have a privacy concern
+                                                </label>
+</li>
+<li class="form-check">
+<input class="radio_animated form-check-input" id="exampleRadios5" name="exampleRadios1" type="radio" value="option5"/>
+<label class="form-check-label" for="exampleRadios5">
+                                                    This is temporary
+                                                </label>
+</li>
+<li class="form-check">
+<input class="radio_animated form-check-input" id="exampleRadios6" name="exampleRadios1" type="radio" value="option6"/>
+<label class="form-check-label" for="exampleRadios6">
+                                                    other
+                                                </label>
+</li>
+</ul>
+<button class="btn btn-solid btn-xs mt-4" type="button">Deactivate
+                                            Account</button>
+</div>
+<div class="account-setting">
+<h5>Delete account</h5>
+<ul class="setting-list">
+<li class="form-check">
+<input checked="" class="radio_animated form-check-input" id="exampleRadios7" name="exampleRadios3" type="radio" value="option7"/>
+<label class="form-check-label" for="exampleRadios7">
+                                                    No longer usable
+                                                </label>
+</li>
+<li class="form-check">
+<input class="radio_animated form-check-input" id="exampleRadios8" name="exampleRadios3" type="radio" value="option8"/>
+<label class="form-check-label" for="exampleRadios8">
+                                                    Want to switch on other account
+                                                </label>
+</li>
+<li class="form-check">
+<input class="radio_animated form-check-input" id="exampleRadios9" name="exampleRadios3" type="radio" value="option9"/>
+<label class="form-check-label" for="exampleRadios9">
+                                                    other
+                                                </label>
+</li>
+</ul>
+<button class="btn btn-solid btn-xs mt-3" type="button">Delete
+                                            Account</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!--  dashboard section end -->
+<!-- Footer Section Start -->
+<footer class="footer-style-1">
+<section class="section-b-space darken-layout">
+<div class="container">
+<div class="row footer-theme g-md-5 g-2">
+<div class="col-xl-3 col-lg-5 col-md-6 sub-title">
+<div>
+<div class="footer-logo"><a href="./index.html"><img alt="logo" class="img-fluid" src="assets/images/logo-white.png"/>
+</a></div>
+<p> Discover the latest trends and enjoy seamless shopping
+                                with our exclusive collections.
+                            </p>
+<ul class="contact-list">
+<li><i class="ri-map-pin-line"></i>
+                                    Jacklabs Demo Store, Demo Store India 345-659 </li>
+<li><i class="ri-phone-line"></i>
+                                    Call Us: 123-456-7898 </li>
+<li><i class="ri-mail-line"></i>
+                                    Email Us: support@jacklabs.com </li>
+</ul>
+</div>
+</div>
+<div class="col-xl-2 col-lg-3 col-md-4 col-md-6">
+<div class="sub-title">
+<div class="footer-title">
+<h4>Categories</h4>
+</div>
+<div class="footer-content">
+<ul>
+<li><a class="text-content" href="./product-page(thumbnail).html">Baby
+                                            Essentials</a></li>
+<li><a class="text-content" href="./product-page(thumbnail).html">Bag
+                                            Emporium</a></li>
+<li><a class="text-content" href="./product-page(thumbnail).html">Books</a>
+</li>
+<li><a class="text-content" href="./product-page(thumbnail).html">Christmas</a>
+</li>
+<li><a class="text-content" href="./product-page(thumbnail).html">Classic
+                                            Furnishings</a></li>
+<li><a class="text-content" href="./product-page(thumbnail).html">Crystal
+                                            Clarity Optics</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-xl col-lg-3 col-md-3">
+<div class="sub-title">
+<div class="footer-title">
+<h4>Useful Links</h4>
+</div>
+<div class="footer-content">
+<ul>
+<li><a class="text-content" href="./index.html">Home</a></li>
+<li><a class="text-content" href="./collection.html">Collections</a>
+</li>
+<li><a class="text-content" href="./about-page.html">About Us</a>
+</li>
+<li><a class="text-content" href="./blog(right-sidebar).html">Blogs</a></li>
+<li><a class="text-content" href="./index.html">Offers</a></li>
+<li><a class="text-content" href="./search.html">Search</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-xl-2 col-md-3">
+<div class="sub-title">
+<div class="footer-title">
+<h4>Help Center</h4>
+</div>
+<div class="footer-content">
+<ul>
+<li><a class="text-content" href="./dashboard.html">My
+                                            Account</a></li>
+<li><a class="text-content" href="./dashboard.html">My
+                                            Orders</a>
+</li>
+<li><a class="text-content" href="./order-tracking.html">Track
+                                            Order</a></li>
+<li><a class="text-content" href="./wishlist.html">Wishlist</a>
+</li>
+<li><a class="text-content" href="./faq.html">Faq's</a></li>
+<li><a class="text-content" href="./contact.html">Contact
+                                            Us</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-xl-3 col-lg-4 col-md-6">
+<div class="sub-title">
+<div class="footer-title">
+<h4>Follow Us</h4>
+</div>
+<div class="footer-content">
+<p class="mb-cls-content">Never Miss Anything From
+                                    Store By Signing Up To Our Newsletter.</p>
+<form class="form-inline" novalidate="">
+<div class="form-group me-sm-3 mb-2"><input class="form-control" placeholder="Enter Email Address" type="email"/>
+</div>
+<button class="btn btn-solid mb-2" type="submit">Subscribe</button>
+</form>
+<div class="footer-social">
+<ul>
+<li><a href="https://facebook.com/" target="_blank"><i class="ri-facebook-fill"></i></a>
+</li>
+<li><a href="https://twitter.com/" target="_blank"><i class="ri-twitter-fill"></i></a>
+</li>
+<li><a href="https://instagram.com/" target="_blank"><i class="ri-instagram-fill"></i></a>
+</li>
+<li><a href="https://pinterest.com/" target="_blank"><i class="ri-pinterest-fill"></i></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="sub-footer dark-subfooter">
+<div class="container">
+<div class="row">
+<div class="col-xl-6 col-md-6 col-sm-12">
+<div class="footer-end">
+<p><i class="ri-copyright-line"></i> 2024-25 powered by jacklabs</p>
+</div>
+</div>
+<div class="col-xl-6 col-md-6 col-sm-12">
+<div class="payment-card-bottom">
+<img alt="payment options" class="img-fluid" src="assets/images/payment.png"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<!-- Footer Section End -->
+<!-- Search Modal Start -->
+<div class="modal fade search-modal theme-modal-2" id="searchModal" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered modal-xl">
+<div class="modal-content">
+<div class="modal-header">
+<h3 class="modal-title fs-5">Search in store</h3>
+<button class="btn-close" data-bs-dismiss="modal" type="button">
+<i class="ri-close-line"></i>
+</button>
+</div>
+<div class="modal-body">
+<div class="search-input-box">
+<input class="form-control" placeholder="Search with brands and categories..." type="text"/>
+<i class="ri-search-2-line"></i>
+</div>
+<ul class="search-category">
+<li class="category-title">Top search:</li>
+<li>
+<a href="./category-page.html">Baby Essentials</a>
+</li>
+<li>
+<a href="./category-page.html">Bag Emporium</a>
+</li>
+<li>
+<a href="./category-page.html">Bags</a>
+</li>
+<li>
+<a href="./category-page.html">Books</a>
+</li>
+</ul>
+<div class="search-product-box mt-sm-4 mt-3">
+<h3 class="search-title">Most Searched</h3>
+<div class="row row-cols-xl-4 row-cols-md-3 row-cols-2 g-sm-4 g-3">
+<div class="col">
+<div class="basic-product theme-product-1">
+<div class="overflow-hidden">
+<div class="img-wrapper">
+<div class="ribbon"><span>Exclusive</span></div>
+<a href="./product-page(accordian).html">
+<img alt="" class="img-fluid blur-up lazyloaded" src="assets/images/fashion-1/product/1.jpg"/>
+</a>
+<div class="rating-label"><i class="ri-star-fill"></i><span>2.5</span>
+</div>
+<div class="cart-info">
+<a class="wishlist-icon" href="#!" title="Add to Wishlist">
+<i class="ri-heart-line"></i>
+</a>
+<button data-bs-target="#addtocart" data-bs-toggle="modal" title="Add to cart">
+<i class="ri-shopping-cart-line"></i>
+</button>
+<a data-bs-toggle="modal" href="#quickView" title="Quick View">
+<i class="ri-eye-line"></i>
+</a>
+<a href="./compare.html" title="Compare">
+<i class="ri-loop-left-line"></i>
+</a>
+</div>
+</div>
+<div class="product-detail">
+<div>
+<div class="brand-w-color">
+<a class="product-title" href="./product-page(accordian).html">
+                                                        Glamour Gaze
+                                                    </a>
+<div class="color-panel">
+<ul>
+<li style="background-color: papayawhip;"></li>
+<li style="background-color: burlywood;"></li>
+<li style="background-color: gainsboro;"></li>
+</ul>
+<span>+2</span>
+</div>
+</div>
+<h6>Boyfriend Shirts</h6>
+<h4 class="price">$ 2.79<del> $3.00 </del><span class="discounted-price"> 7%
+                                                        Off
+                                                    </span>
+</h4>
+</div>
+<ul class="offer-panel">
+<li>
+<span class="offer-icon">
+<i class="ri-discount-percent-fill"></i>
+</span>
+                                                    Limited Time Offer: 4% off
+                                                </li>
+<li><span class="offer-icon"><i class="ri-discount-percent-fill"></i></span>
+                                                    Limited Time Offer: 4% off</li>
+<li><span class="offer-icon"><i class="ri-discount-percent-fill"></i></span>
+                                                    Limited Time Offer: 4% off</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="basic-product theme-product-1">
+<div class="overflow-hidden">
+<div class="img-wrapper">
+<a href="./product-page(accordian).html"><img alt="" class="img-fluid blur-up lazyloaded" src="assets/images/fashion-1/product/11.jpg"/></a>
+<div class="rating-label"><i class="fa fa-star"></i>
+<span>6.5</span>
+</div>
+<div class="cart-info">
+<a class="wishlist-icon" href="#!" title="Add to Wishlist">
+<i class="ri-heart-line"></i>
+</a>
+<button data-bs-target="#addtocart" data-bs-toggle="modal" title="Add to cart">
+<i class="ri-shopping-cart-line"></i>
+</button>
+<a data-bs-toggle="modal" href="#quickView" title="Quick View">
+<i class="ri-eye-line"></i>
+</a>
+<a href="./compare.html" title="Compare">
+<i class="ri-loop-left-line"></i>
+</a>
+</div>
+</div>
+<div class="product-detail">
+<div>
+<div class="brand-w-color">
+<a class="product-title" href="./product-page(accordian).html">
+                                                        VogueVista
+                                                    </a>
+</div>
+<h6>Chic Crop Top</h6>
+<h4 class="price">$ 5.60<del> $6.80 </del><span class="discounted-price"> 5%
+                                                        Off
+                                                    </span>
+</h4>
+</div>
+<ul class="offer-panel">
+<li><span class="offer-icon"><i class="ri-discount-percent-fill"></i></span>
+                                                    Limited Time Offer: 25% off</li>
+<li><span class="offer-icon"><i class="ri-discount-percent-fill"></i></span>
+                                                    Limited Time Offer: 25% off</li>
+<li><span class="offer-icon"><i class="ri-discount-percent-fill"></i></span>
+                                                    Limited Time Offer: 25% off</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="basic-product theme-product-1">
+<div class="overflow-hidden">
+<div class="img-wrapper">
+<a href="./product-page(accordian).html"><img alt="" class="img-fluid blur-up lazyloaded" src="assets/images/fashion-1/product/15.jpg"/></a>
+<div class="rating-label"><i class="fa fa-star"></i>
+<span>3.7</span>
+</div>
+<div class="cart-info">
+<a class="wishlist-icon" href="#!" title="Add to Wishlist">
+<i class="ri-heart-line"></i>
+</a>
+<button data-bs-target="#addtocart" data-bs-toggle="modal" title="Add to cart">
+<i class="ri-shopping-cart-line"></i>
+</button>
+<a data-bs-toggle="modal" href="#quickView" title="Quick View">
+<i class="ri-eye-line"></i>
+</a>
+<a href="./compare.html" title="Compare">
+<i class="ri-loop-left-line"></i>
+</a>
+</div>
+</div>
+<div class="product-detail">
+<div>
+<div class="brand-w-color">
+<a class="product-title" href="./product-page(accordian).html">
+                                                        Urban Chic
+                                                    </a>
+</div>
+<h6>Classic Jacket</h6>
+<h4 class="price">$ 3.80 </h4>
+</div>
+<ul class="offer-panel">
+<li><span class="offer-icon"><i class="ri-discount-percent-fill"></i></span>
+                                                    Limited Time Offer: 10% off</li>
+<li><span class="offer-icon"><i class="ri-discount-percent-fill"></i></span>
+                                                    Limited Time Offer: 10% off</li>
+<li><span class="offer-icon"><i class="ri-discount-percent-fill"></i></span>
+                                                    Limited Time Offer: 10% off</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="basic-product theme-product-1">
+<div class="overflow-hidden">
+<div class="img-wrapper">
+<a href="./product-page(accordian).html">
+<img alt="" class="img-fluid blur-up lazyloaded" src="assets/images/fashion-1/product/16.jpg"/>
+</a>
+<div class="rating-label"><i class="fa fa-star"></i>
+<span>8.7</span>
+</div>
+<div class="cart-info">
+<a class="wishlist-icon" href="#!" title="Add to Wishlist">
+<i class="ri-heart-line"></i>
+</a>
+<button data-bs-target="#addtocart" data-bs-toggle="modal" title="Add to cart">
+<i class="ri-shopping-cart-line"></i>
+</button>
+<a data-bs-toggle="modal" href="#quickView" title="Quick View">
+<i class="ri-eye-line"></i>
+</a>
+<a href="./compare.html" title="Compare">
+<i class="ri-loop-left-line"></i>
+</a>
+</div>
+</div>
+<div class="product-detail">
+<div>
+<div class="brand-w-color">
+<a class="product-title" href="./product-page(accordian).html">
+                                                        Couture Edge
+                                                    </a>
+</div>
+<h6>Versatile Shacket</h6>
+<h4 class="price"> $3.00
+                                                </h4>
+</div>
+<ul class="offer-panel">
+<li><span class="offer-icon"><i class="ri-discount-percent-fill"></i></span>
+                                                    Limited Time Offer: 12% off</li>
+<li><span class="offer-icon"><i class="ri-discount-percent-fill"></i></span>
+                                                    Limited Time Offer: 12% off</li>
+<li><span class="offer-icon"><i class="ri-discount-percent-fill"></i></span>
+                                                    Limited Time Offer: 12% off</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Search Modal End -->
+<!-- Cart Offcanvas Start -->
+<div class="offcanvas offcanvas-end cart-offcanvas" id="cartOffcanvas" tabindex="-1">
+<div class="offcanvas-header">
+<h3 class="offcanvas-title">My Cart (3)</h3>
+<button class="btn-close" data-bs-dismiss="offcanvas" type="button">
+<i class="ri-close-line"></i>
+</button>
+</div>
+<div class="offcanvas-body">
+<div class="pre-text-box">
+<p>spend $20.96 More And Enjoy Free Shipping!</p>
+<div class="progress" role="progressbar">
+<div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 58.08%;">
+<i class="ri-truck-line"></i>
+</div>
+</div>
+</div>
+<div class="sidebar-title">
+<a href="#!">Clear Cart</a>
+</div>
+<div class="cart-media">
+<ul class="cart-product">
+<li>
+<div class="media">
+<a href="#!">
+<img alt="Classic Jacket" class="img-fluid" src="assets/images/fashion-1/product/5.jpg"/>
+</a>
+<div class="media-body">
+<a href="#!">
+<h4>Couture Edge</h4>
+</a>
+<h4 class="quantity">
+<span>1 x $6.74</span>
+</h4>
+<div class="qty-box">
+<div class="input-group qty-container">
+<button class="btn qty-btn-minus">
+<i class="ri-subtract-line"></i>
+</button>
+<input class="form-control input-qty" name="qty" readonly="" type="number" value="1"/>
+<button class="btn qty-btn-plus">
+<i class="ri-add-line"></i>
+</button>
+</div>
+</div>
+<div class="close-circle">
+<button class="close_button edit-button" data-bs-target="#variationModal" data-bs-toggle="modal">
+<i class="ri-pencil-line"></i>
+</button>
+<button class="close_button delete-button" type="submit">
+<i class="ri-delete-bin-line"></i>
+</button>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div class="media">
+<a href="#!">
+<img alt="Classic Jacket" class="img-fluid" src="assets/images/fashion-1/product/13.jpg"/>
+</a>
+<div class="media-body">
+<a href="#!">
+<h4>Classic Jacket</h4>
+</a>
+<h4 class="quantity">
+<span>1 x $7.84</span>
+</h4>
+<div class="qty-box">
+<div class="input-group qty-container">
+<button class="btn qty-btn-minus">
+<i class="ri-subtract-line"></i>
+</button>
+<input class="form-control input-qty" name="qty" readonly="" type="number" value="1"/>
+<button class="btn qty-btn-plus">
+<i class="ri-add-line"></i>
+</button>
+</div>
+</div>
+<div class="close-circle">
+<button class="close_button delete-button" type="submit">
+<i class="ri-delete-bin-line"></i>
+</button>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div class="media">
+<a href="#!">
+<img alt="Classic Jacket" class="img-fluid" src="assets/images/fashion-1/product/12.jpg"/>
+</a>
+<div class="media-body">
+<a href="#!">
+<h4>Urban Chic</h4>
+</a>
+<h4 class="quantity">
+<span>2 x $3.84</span>
+</h4>
+<div class="qty-box">
+<div class="input-group qty-container">
+<button class="btn qty-btn-minus">
+<i class="ri-subtract-line"></i>
+</button>
+<input class="form-control input-qty" name="qty" readonly="" type="number" value="1"/>
+<button class="btn qty-btn-plus">
+<i class="ri-add-line"></i>
+</button>
+</div>
+</div>
+<div class="close-circle">
+<button class="close_button delete-button" type="submit">
+<i class="ri-delete-bin-line"></i>
+</button>
+</div>
+</div>
+</div>
+</li>
+</ul>
+<ul class="cart_total">
+<li>
+<div class="total">
+<h5>Sub Total : <span>$36.74</span>
+</h5>
+</div>
+</li>
+<li>
+<div class="buttons">
+<a class="btn view-cart" href="./cart.html">View Cart</a>
+<a class="btn checkout" href="./checkout.html">Check Out</a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="modal fade theme-modal-2 variation-modal" id="variationModal">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<button class="btn-close" data-bs-dismiss="modal" type="button">
+<i class="ri-close-line"></i>
+</button>
+<div class="modal-body">
+<div class="product-right product-page-details variation-title">
+<h2 class="main-title">
+<a href="./product-page(accordian).html">Cami Tank Top (Blue)</a>
+</h2>
+<h3 class="price-detail">$14.25 <span>5% off</span></h3>
+</div>
+<div class="variation-box">
+<h4 class="sub-title">Color:</h4>
+<ul class="quantity-variant color">
+<li class="bg-light">
+<span style="background-color: rgb(240, 0, 0);"></span>
+</li>
+<li class="bg-light">
+<span style="background-color: rgb(47, 147, 72);"></span>
+</li>
+<li class="bg-light active">
+<span style="background-color: rgb(0, 132, 255);"></span>
+</li>
+</ul>
+</div>
+<div class="variation-qty-button">
+<div class="qty-section">
+<div class="qty-box">
+<div class="input-group qty-container">
+<button class="btn qty-btn-minus">
+<i class="ri-subtract-line"></i>
+</button>
+<input class="form-control input-qty" name="qty" readonly="" type="number" value="1"/>
+<button class="btn qty-btn-plus">
+<i class="ri-add-line"></i>
+</button>
+</div>
+</div>
+</div>
+<div class="product-buttons">
+<button class="btn btn-animation btn-solid hover-solid scroll-button" data-bs-dismiss="modal" id="replacecartbtnVariation14" type="submit">
+<i class="ri-shopping-cart-line me-1"></i>
+                                Update Item
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Cart Offcanvas End -->
+<!-- tap to top -->
+<div class="tap-top">
+<div>
+<i class="ri-arrow-up-double-line"></i>
+</div>
+</div>
+<!-- tap to top End -->
+<!-- Modal start -->
+<div class="modal logout-modal fade" id="logout" role="dialog" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Logging Out</h5>
+<button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button">
+<span>×</span>
+</button>
+</div>
+<div class="modal-body">
+                    Do you want to log out?
+                </div>
+<div class="modal-footer">
+<a class="btn btn-dark btn-custom" data-bs-dismiss="modal" href="#!">no</a>
+<a class="btn btn-solid btn-custom" href="./index.html">yes</a>
+</div>
+</div>
+</div>
+</div>
+<!-- modal end -->
+<!-- theme setting start -->
+<div class="theme-settings">
+<button class="setting-sidebar btn" id="setting-icon" onclick="openSetting()">
+<i class="ri-sound-module-line"></i>
+            Customize
+        </button>
+</div>
+<div class="scroll-setting-box">
+<div class="setting-box" id="setting_box">
+<a class="overlay" href="#!" onclick="closeSetting()"></a>
+<div class="setting-title">
+<h4>Theme Setting</h4>
+<a class="close-icon" href="#!" onclick="closeSetting()">
+<i class="ri-close-large-line"></i>
+</a>
+</div>
+<div class="setting_box_body">
+<div class="accordion custemizer-accordion" id="accordionExample">
+<div class="accordion-item">
+<h2 class="accordion-header">
+<button class="accordion-button" data-bs-target="#collapseOne" data-bs-toggle="collapse" type="button">
+<span class="setting-description-text">
+<span class="setting-title-content">50+ Demo</span>
+<span class="setting-content">Explore 50+ demos</span>
+</span>
+</button>
+</h2>
+<div class="accordion-collapse collapse show" data-bs-parent="#accordionExample" id="collapseOne">
+<div class="accordion-body">
+<div class="setting-body">
+<div class="setting-contant">
+<div class="row demo-section g-3">
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./index.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/fashion-1.png"/>
+</a>
+<a class="demo-text" href="./fashion-2.html">
+<span>fashion 1</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./fashion-2.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/fashion-2.png"/>
+</a>
+<a class="demo-text" href="./fashion-2.html">
+<span>fashion 2</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./fashion-3.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/fashion-3.png"/>
+</a>
+<a class="demo-text" href="./fashion-3.html">
+<span>fashion 3</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./fashion-4.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/fashion-4.png"/>
+</a>
+<a class="demo-text" href="./fashion-4.html">
+<span>fashion 4</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./fashion-5.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/fashion-5.png"/>
+</a>
+<a class="demo-text" href="./fashion-5.html">
+<span>fashion 5</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./fashion-6.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/fashion-6.png"/>
+</a>
+<a class="demo-text" href="./fashion-6.html">
+<span>fashion 6</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./fashion-7.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/fashion-7.png"/>
+</a>
+<a class="demo-text" href="./fashion-7.html">
+<span>fashion 7</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./furniture.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/furniture-1.png"/>
+</a>
+<a class="demo-text" href="./furniture.html">
+<span>furniture</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./furniture-2.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/furniture-2.png"/>
+</a>
+<a class="demo-text" href="./furniture-2.html">
+<span>furniture 2</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./furniture-3.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/furniture-dark.png"/>
+</a>
+<a class="demo-text" href="./furniture-3.html">
+<span>furniture dark</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./electronic-1.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/electronic-1.png"/>
+</a>
+<a class="demo-text" href="./electronic-1.html">
+<span>electronics</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./electronic-2.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/electronic-2.png"/>
+</a>
+<a class="demo-text" href="./electronic-2.html">
+<span>electronics 2</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./electronic-3.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/electronic-3.png"/>
+</a>
+<a class="demo-text" href="./electronic-3.html">
+<span>electronics 3</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./marketplace-demo.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/marketplace-1.png"/>
+</a>
+<a class="demo-text" href="./marketplace-demo.html">
+<span>marketplace</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./marketplace-demo-2.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/marketplace-2.png"/>
+</a>
+<a class="demo-text" href="./marketplace-demo-2.html">
+<span>marketplace 2</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./marketplace-demo-3.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/marketplace-3.png"/>
+</a>
+<a class="demo-text" href="./marketplace-demo-3.html">
+<span>marketplace 3</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./marketplace-demo-4.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/marketplace-4.png"/>
+</a>
+<a class="demo-text" href="./marketplace-demo-4.html">
+<span>marketplace 4</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./vegetables.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/vegetable-1.png"/>
+</a>
+<a class="demo-text" href="./vegetables.html">
+<span>vegetables</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./vegetables-2.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/vegetable-2.png"/>
+</a>
+<a class="demo-text" href="./vegetables-2.html">
+<span>vegetables 2</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./vegetables-3.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/vegetable-3.png"/>
+</a>
+<a class="demo-text" href="./vegetables-3.html">
+<span>vegetables 3</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./vegetables-4.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/vegetable-4.png"/>
+</a>
+<a class="demo-text" href="./vegetables-4.html">
+<span>Vegetables 4 </span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./vegetables-5.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/vegetable-5.png"/>
+</a>
+<a class="demo-text" href="./vegetables-5.html">
+<span>Vegetables 5 </span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./jewellery.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/jewellery-1.png"/>
+</a>
+<a class="demo-text" href="./jewellery.html">
+<span>jewellery</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./jewellery-2.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/jewellery-2.png"/>
+</a>
+<a class="demo-text" href="./jewellery-2.html">
+<span>jewellery 2</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./jewellery-3.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/jewellery-3.png"/>
+</a>
+<a class="demo-text" href="./jewellery-3.html">
+<span>jewellery 3</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./bags.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/bag.png"/>
+</a>
+<a class="demo-text" href="./bags.html">
+<span>bag</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./watch.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/watch.png"/>
+</a>
+<a class="demo-text" href="./watch.html">
+<span>watch</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./medical.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/medical.png"/>
+</a>
+<a class="demo-text" href="./medical.html">
+<span>medical</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./perfume.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/perfume.png"/>
+</a>
+<a class="demo-text" href="./perfume.html">
+<span>perfume</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./yoga.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/yoga.png"/>
+</a>
+<a class="demo-text" href="./yoga.html">
+<span>yoga</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./christmas.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/christmas.png"/>
+</a>
+<a class="demo-text" href="./christmas.html">
+<span>christmas</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./bicycle.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/bicycle.png"/>
+</a>
+<a class="demo-text" href="./bicycle.html">
+<span>bicycle</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./marijuana.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/marijuna.png"/>
+</a>
+<a class="demo-text" href="./marijuana.html">
+<span>marijuana</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./gym-product.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/gym.png"/>
+</a>
+<a class="demo-text" href="./gym-product.html">
+<span>gym</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./tools.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/tools.png"/>
+</a>
+<a class="demo-text" href="./tools.html">
+<span>tools</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./shoes.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/shoes.png"/>
+</a>
+<a class="demo-text" href="./shoes.html">
+<span>shoes</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./books.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/books.png"/>
+</a>
+<a class="demo-text" href="./books.html">
+<span>books</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./kids.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/kids.png"/>
+</a>
+<a class="demo-text" href="./kids.html">
+<span>kids</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./game.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/games.png"/>
+</a>
+<a class="demo-text" href="./game.html">
+<span>game</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./beauty.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/beauty.png"/>
+</a>
+<a class="demo-text" href="./beauty.html">
+<span>beauty</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./left_sidebar-demo.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/left-sidebar.png"/>
+</a>
+<a class="demo-text" href="./left_sidebar-demo.html">
+<span>left sidebar</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./video-slider.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/video_slider.png"/>
+</a>
+<a class="demo-text" href="./video-slider.html">
+<span>video slider</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./metro.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/metro.png"/>
+</a>
+<a class="demo-text" href="./metro.html">
+<span>metro</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./goggles.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/goggles.png"/>
+</a>
+<a class="demo-text" href="./goggles.html">
+<span>goggles</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./flower.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/flowers.png"/>
+</a>
+<a class="demo-text" href="./flower.html">
+<span>flower</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./light.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/light.png"/>
+</a>
+<a class="demo-text" href="./light.html">
+<span>light</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./nursery.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/nursery.png"/>
+</a>
+<a class="demo-text" href="./nursery.html">
+<span>nursery</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./pets.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/pets.png"/>
+</a>
+<a class="demo-text" href="./pets.html">
+<span>pets</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./video.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/video.png"/>
+</a>
+<a class="demo-text" href="./video.html">
+<span>video</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./gradient.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/gradient.png"/>
+</a>
+<a class="demo-text" href="./gradient.html">
+<span>gradient</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./lookbook-demo.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/lookbook.png"/>
+</a>
+<a class="demo-text" href="./lookbook-demo.html">
+<span>lookbook</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./full-page.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/full_page.png"/>
+</a>
+<a class="demo-text" href="./full-page.html">
+<span>full page</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./parallax.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/parallax.png"/>
+</a>
+<a class="demo-text" href="./parallax.html">
+<span>parallax</span>
+</a>
+</div>
+</div>
+<div class="col-md-6 col-6 text-center demo-effects">
+<div class="set-position">
+<a class="layout-container" href="./nft.html">
+<img alt="" class="img-fluid" src="assets/images/custemizer/demo/nft.png"/>
+</a>
+<a class="demo-text" href="./nft.html">
+<span>NFT </span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="setting-section">
+<div class="setting-inner-title">
+<h5>RTL Mode</h5>
+<p>Change Language Direction</p>
+</div>
+<div class="form-check form-switch">
+<input class="form-check-input" id="rtlmode" role="switch" type="checkbox"/>
+</div>
+</div>
+<div class="setting-section">
+<div class="setting-inner-title">
+<h5>Dark Mode</h5>
+<p>Switch Between Light And Dark Mode</p>
+</div>
+<div class="form-check form-switch">
+<input class="form-check-input" id="darkmode" role="switch" type="checkbox"/>
+</div>
+</div>
+<div class="setting-section">
+<div class="setting-inner-title">
+<a href="#!" target="_blank">Admin</a>
+<p>Backend Admin Panel</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- theme setting end -->
+<!-- latest jquery-->
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+<!-- menu js-->
+<script src="assets/js/menu.js"></script>
+<!-- lazyload js-->
+<script src="assets/js/lazysizes.min.js"></script>
+<!-- slick js-->
+<script src="assets/js/slick.js"></script>
+<!-- dare picker js -->
+<script src="assets/js/date-picker.js"></script>
+<!-- Bootstrap js-->
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<!-- chart js -->
+<script src="assets/js/chart/apex/apexcharts.js"></script>
+<script src="assets/js/chart/apex/custom-chart.js"></script>
+<svg height="0" id="SvgjsSvg1108" style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;" version="1.1" width="2" xmlns="http://www.w3.org/2000/svg" xmlns:svgjs="http://svgjs.com/svgjs" xmlns:xlink="http://www.w3.org/1999/xlink"><defs id="SvgjsDefs1109"></defs><polyline id="SvgjsPolyline1110" points="0,0"></polyline><path d="M-1 7559.7000000003L-1 7559.7000000003C-1 7559.7000000003 34.88076885310291 7559.7000000003 34.88076885310291 7559.7000000003C34.88076885310291 7559.7000000003 41.79926846032993 7559.7000000003 41.79926846032993 7559.7000000003C41.79926846032993 7559.7000000003 48.717768067556946 7559.7000000003 48.717768067556946 7559.7000000003C48.717768067556946 7559.7000000003 69.47326688923802 7559.7000000003 69.47326688923802 7559.7000000003C69.47326688923802 7559.7000000003 84.39928919001484 7559.7000000003 84.39928919001484 7559.7000000003C84.39928919001484 7559.7000000003 91.31778879724186 7559.7000000003 91.31778879724186 7559.7000000003C91.31778879724186 7559.7000000003 98.23628840446888 7559.7000000003 98.23628840446888 7559.7000000003C98.23628840446888 7559.7000000003 105.1547880116959 7559.7000000003 105.1547880116959 7559.7000000003C105.1547880116959 7559.7000000003 113.83494261150388 7559.7000000003 113.83494261150388 7559.7000000003C113.83494261150388 7559.7000000003 124.8212637470542 7559.7000000003 124.8212637470542 7559.7000000003C124.8212637470542 7559.7000000003 154.67330834860783 7559.7000000003 154.67330834860783 7559.7000000003C154.67330834860783 7559.7000000003 161.59180795583487 7559.7000000003 161.59180795583487 7559.7000000003C161.59180795583487 7559.7000000003 166.33226139041633 7559.7000000003 166.33226139041633 7559.7000000003C166.33226139041633 7559.7000000003 181.25828369119316 7559.7000000003 181.25828369119316 7559.7000000003C181.25828369119316 7559.7000000003 194.58280145326 7559.7000000003 194.58280145326 7559.7000000003C194.58280145326 7559.7000000003 204.57618977481016 7559.7000000003 204.57618977481016 7559.7000000003C204.57618977481016 7559.7000000003 212.58371246835995 7559.7000000003 212.58371246835995 7559.7000000003C212.58371246835995 7559.7000000003 220.59123516190974 7559.7000000003 220.59123516190974 7559.7000000003C220.59123516190974 7559.7000000003 225.74007225386225 7559.7000000003 225.74007225386225 7559.7000000003C225.74007225386225 7559.7000000003 238.0796647246225 7559.7000000003 238.0796647246225 7559.7000000003C238.0796647246225 7559.7000000003 244.99816433184952 7559.7000000003 244.99816433184952 7559.7000000003C244.99816433184952 7559.7000000003 283.9467547132757 7559.7000000003 283.9467547132757 7559.7000000003C283.9467547132757 7559.7000000003 290.86525432050274 7559.7000000003 290.86525432050274 7559.7000000003C290.86525432050274 7559.7000000003 295.6057077550842 7559.7000000003 295.6057077550842 7559.7000000003C295.6057077550842 7559.7000000003 310.53173005586103 7559.7000000003 310.53173005586103 7559.7000000003C310.53173005586103 7559.7000000003 317.45022966308807 7559.7000000003 317.45022966308807 7559.7000000003C317.45022966308807 7559.7000000003 332.3762519638649 7559.7000000003 332.3762519638649 7559.7000000003C332.3762519638649 7559.7000000003 339.29475157109187 7559.7000000003 339.29475157109187 7559.7000000003C339.29475157109187 7559.7000000003 360.05025039277297 7559.7000000003 360.05025039277297 7559.7000000003C360.05025039277297 7559.7000000003 366.96875 7559.7000000003 366.96875 7559.7000000003C366.96875 7559.7000000003 366.96875 7559.7000000003 366.96875 7559.7000000003 " id="SvgjsPath1111"></path></svg><!-- Bootstrap Notification js-->
+<script src="assets/js/bootstrap-notify.min.js"></script>
+<!-- Theme js-->
+<script src="assets/js/theme-setting.js"></script>
+<script src="assets/js/script.js"></script>
+<script>
+        function openSearch() {
+            document.getElementById("search-overlay").style.display = "block";
+        }
+
+        function closeSearch() {
+            document.getElementById("search-overlay").style.display = "none";
+        }
+        $('#datepicker').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+        $('#datepicker1').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+    </script>
+</body></html>

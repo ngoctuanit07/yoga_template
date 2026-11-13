@@ -1,0 +1,959 @@
+/* ==========================================================================
+   JACKLABS - COMPLETE LAYOUT ALIGNMENT & HARMONIZATION SYSTEM
+   Fixes: input, label, table, form, modal (Top, Bottom, Left, Right alignment)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. FORMS & FORM CONTAINERS ("form ngay hàng thẳng lối")
+   -------------------------------------------------------------------------- */
+form,
+.theme-form {
+  width: 100%;
+  position: relative;
+}
+
+.form-box,
+.theme-form .form-box,
+.form-group,
+.theme-form .form-group {
+  margin-bottom: 20px !important;
+  position: relative;
+  width: 100%;
+  text-align: left;
+}
+
+.form-box:last-child,
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+/* Row gutters inside forms */
+.theme-form .row,
+.form-row.row {
+  --bs-gutter-x: 20px;
+  --bs-gutter-y: 16px;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.theme-form .row > [class*="col-"],
+.form-row.row > [class*="col-"] {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* Authentication & Card alignment */
+.theme-card,
+.authentication-right {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 35px 30px !important;
+  border: 1px solid #eef0f4;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.login-page .row,
+.register-page .row {
+  align-items: stretch;
+}
+
+/* Form Action Buttons */
+.theme-form .btn-solid,
+.theme-form .btn,
+.theme-form a.btn,
+.theme-form button.btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 46px;
+  padding: 0 32px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 4px !important;
+  margin-top: 10px;
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* --------------------------------------------------------------------------
+   2. LABELS ("label trên dưới, trái phải ngay hàng thẳng lối")
+   -------------------------------------------------------------------------- */
+label,
+.form-label,
+.theme-form label,
+.theme-form .form-label,
+.form-box label,
+.form-box .form-label {
+  display: block !important;
+  width: 100%;
+  margin-bottom: 8px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #2b2b2b !important;
+  text-align: left !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+}
+
+.form-label-desc {
+  display: block;
+  font-size: 12px;
+  color: #777;
+  margin-top: -4px;
+  margin-bottom: 8px;
+}
+
+/* Checkbox & Radio Labels */
+.form-check-label {
+  display: inline-flex !important;
+  align-items: center !important;
+  width: auto !important;
+  margin-bottom: 0 !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #444 !important;
+  cursor: pointer;
+  line-height: 1.4 !important;
+  text-transform: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. INPUTS & CONTROLS ("input trên dưới, trái phải ngay hàng thẳng lối")
+   -------------------------------------------------------------------------- */
+.form-control,
+.form-select,
+.theme-form input[type="text"],
+.theme-form input[type="email"],
+.theme-form input[type="password"],
+.theme-form input[type="tel"],
+.theme-form input[type="number"],
+.theme-form input[type="url"],
+.theme-form input[type="date"],
+.theme-form select,
+.form-box .form-control {
+  width: 100% !important;
+  height: 46px !important;
+  min-height: 46px !important;
+  padding: 10px 16px !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  color: #333 !important;
+  background-color: #fff !important;
+  border: 1px solid #dcdfe6 !important;
+  border-radius: 4px !important;
+  box-sizing: border-box !important;
+  vertical-align: middle !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Textarea normalization */
+textarea.form-control,
+.theme-form textarea,
+.form-box textarea {
+  height: auto !important;
+  min-height: 120px !important;
+  padding: 12px 16px !important;
+  line-height: 1.6 !important;
+  resize: vertical;
+}
+
+/* Input Focus States */
+.form-control:focus,
+.form-select:focus,
+.theme-form input:focus,
+.theme-form textarea:focus,
+.form-box .form-control:focus {
+  border-color: var(--theme-color, #e22454) !important;
+  box-shadow: 0 0 0 3px rgba(226, 36, 84, 0.12) !important;
+  outline: none !important;
+}
+
+/* Placeholder styling */
+.form-control::placeholder,
+.theme-form input::placeholder,
+.form-box .form-control::placeholder {
+  color: #9aa0ac !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  opacity: 1 !important;
+}
+
+/* Hide Spinners in Number Inputs */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0 !important;
+}
+input[type="number"] {
+  -moz-appearance: textfield !important;
+}
+
+/* Checkboxes and Radios */
+.form-check {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  min-height: 24px !important;
+  margin-bottom: 10px !important;
+  padding-left: 0 !important;
+}
+
+.form-check-input {
+  float: none !important;
+  margin: 0 !important;
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  border: 1.5px solid #bbb !important;
+  border-radius: 3px !important;
+  background-color: #fff !important;
+  cursor: pointer;
+  flex-shrink: 0 !important;
+  vertical-align: middle !important;
+  transition: all 0.15s ease;
+}
+
+.form-check-input[type="radio"] {
+  border-radius: 50% !important;
+}
+
+.form-check-input:checked {
+  background-color: var(--theme-color, #e22454) !important;
+  border-color: var(--theme-color, #e22454) !important;
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 0 2px rgba(226, 36, 84, 0.15) !important;
+  border-color: var(--theme-color, #e22454) !important;
+}
+
+/* Checkout Delivery & Payment Boxes */
+.delivery-address-box {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+  padding: 16px 18px !important;
+  border: 1.5px solid #eef0f4 !important;
+  border-radius: 6px !important;
+  background-color: #fff !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 56px;
+  position: relative;
+  width: 100%;
+}
+
+.delivery-address-box .form-check-input {
+  margin-top: 3px !important;
+  flex-shrink: 0 !important;
+}
+
+.delivery-address-box .form-check-label {
+  flex: 1 1 auto;
+  margin: 0 !important;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  color: #333;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 4px !important;
+}
+
+.delivery-address-box .form-check-label .name {
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  color: #222 !important;
+}
+
+.delivery-address-box:hover,
+.delivery-address-box:has(input:checked) {
+  border-color: var(--theme-color, #e22454) !important;
+  background-color: #fdfafb !important;
+}
+
+/* Input Groups & Search Boxes */
+.input-group {
+  display: flex !important;
+  align-items: stretch !important;
+  width: 100% !important;
+}
+
+.input-group > .form-control,
+.input-group > .form-select {
+  flex: 1 1 auto !important;
+  width: 1% !important;
+  min-width: 0 !important;
+}
+
+.input-group-append,
+.input-group-prepend {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+.input-group-append .btn,
+.input-group-prepend .btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 100% !important;
+  min-height: 46px !important;
+  padding: 0 20px !important;
+  margin: 0 !important;
+}
+
+.coupon-input-box {
+  display: flex !important;
+  align-items: stretch !important;
+  gap: 10px !important;
+  width: 100% !important;
+  margin-top: 12px !important;
+}
+
+.coupon-input-box .form-control {
+  flex: 1 1 auto !important;
+  height: 46px !important;
+  margin-bottom: 0 !important;
+}
+
+.coupon-input-box .apply-button,
+.coupon-input-box .btn {
+  height: 46px !important;
+  padding: 0 22px !important;
+  white-space: nowrap !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  border-radius: 4px !important;
+}
+
+.search-input-box {
+  position: relative !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.search-input-box .form-control {
+  width: 100% !important;
+  height: 48px !important;
+  padding: 10px 48px 10px 18px !important;
+  border: 1px solid #dcdfe6 !important;
+  border-radius: 6px !important;
+  font-size: 15px !important;
+}
+
+.search-input-box i {
+  position: absolute !important;
+  right: 18px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  font-size: 20px !important;
+  color: #888 !important;
+  pointer-events: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. TABLES ("table trên dưới, trái phải ngay hàng thẳng lối")
+   -------------------------------------------------------------------------- */
+.table,
+table {
+  width: 100% !important;
+  margin-bottom: 1.5rem !important;
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+  vertical-align: middle !important;
+}
+
+.table th,
+.table td,
+table th,
+table td {
+  vertical-align: middle !important;
+  padding: 14px 16px !important;
+  border-bottom: 1px solid #eef0f4 !important;
+  border-top: none !important;
+  box-sizing: border-box !important;
+}
+
+.table thead th,
+table thead th,
+.cart-section .cart-table thead th,
+.wishlist-section .cart-table thead th,
+.product-order .product-order-table thead tr th,
+.dashboard-section .wallet-table .order-table thead th {
+  vertical-align: middle !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  color: #222 !important;
+  background-color: #f8f9fa !important;
+  border-bottom: 2px solid #e2e5ec !important;
+  border-top: none !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  padding: 14px 16px !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+.cart-section tbody tr td,
+.wishlist-section tbody tr td,
+.product-order .product-order-table tbody tr td,
+.dashboard-section .wallet-table .order-table tbody tr td {
+  vertical-align: middle !important;
+  text-align: center !important;
+  padding: 16px 14px !important;
+  color: #555 !important;
+  border-bottom: 1px solid #eef0f4 !important;
+}
+
+/* Product Image in Tables */
+.cart-table tbody tr td img,
+.wishlist-table tbody tr td img,
+.product-order-table tbody tr td img,
+.wallet-table tbody tr td img {
+  width: 72px !important;
+  height: 72px !important;
+  max-width: 72px !important;
+  max-height: 72px !important;
+  object-fit: contain !important;
+  border-radius: 6px !important;
+  border: 1px solid #eef0f4 !important;
+  padding: 4px !important;
+  background-color: #fff !important;
+  margin: 0 auto !important;
+  display: block !important;
+}
+
+/* Table Prices */
+.cart-section tbody .table-price h2,
+.wishlist-section tbody .table-price h2,
+.cart-table tbody tr td h2,
+.cart-table tbody tr td .td-color {
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #222 !important;
+  margin: 0 !important;
+  line-height: 1.4 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  white-space: nowrap !important;
+}
+
+/* Table Quantity Stepper (.qty-box) */
+.cart-table .qty-box,
+.wishlist-table .qty-box,
+.table .qty-box,
+.cart-section tbody .qty-box {
+  display: inline-flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 0 auto !important;
+}
+
+.cart-table .qty-box .input-group,
+.wishlist-table .qty-box .input-group,
+.table .qty-box .input-group,
+.cart-section tbody .qty-box .input-group {
+  display: inline-flex !important;
+  align-items: center !important;
+  width: auto !important;
+  max-width: 125px !important;
+  border: 1px solid #dcdfe6 !important;
+  border-radius: 4px !important;
+  overflow: hidden !important;
+  background: #fff !important;
+  flex-wrap: nowrap !important;
+}
+
+.cart-table .qty-box .btn,
+.wishlist-table .qty-box .btn,
+.table .qty-box .btn,
+.cart-section tbody .qty-box .input-group button {
+  width: 32px !important;
+  height: 34px !important;
+  min-width: 32px !important;
+  padding: 0 !important;
+  border: none !important;
+  background-color: #f5f6f8 !important;
+  color: #555 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 16px !important;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.cart-table .qty-box .btn:hover,
+.wishlist-table .qty-box .btn:hover,
+.cart-section tbody .qty-box .input-group button:hover {
+  background-color: #e5e7eb !important;
+}
+
+.cart-table .qty-box input.form-control,
+.cart-table .qty-box .input-qty,
+.table .qty-box input,
+.cart-section tbody .qty-box .input-group .form-control {
+  width: 44px !important;
+  max-width: 44px !important;
+  min-width: 36px !important;
+  height: 34px !important;
+  min-height: 34px !important;
+  padding: 0 !important;
+  border: none !important;
+  border-left: 1px solid #eef0f4 !important;
+  border-right: 1px solid #eef0f4 !important;
+  background-color: #fff !important;
+  text-align: center !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #222 !important;
+  box-shadow: none !important;
+}
+
+/* Remove / Action Buttons in Tables */
+.cart-table .remove-btn,
+.cart-table .icon.remove-btn,
+.wishlist-table .remove-btn,
+.cart-section tbody .remove-btn,
+.wishlist-section tbody .remove-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 34px !important;
+  height: 34px !important;
+  border-radius: 4px !important;
+  background-color: #fef2f2 !important;
+  color: #ef4444 !important;
+  border: 1px solid #fee2e2 !important;
+  font-size: 18px !important;
+  margin: 0 auto !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cart-table .remove-btn:hover,
+.wishlist-table .remove-btn:hover,
+.cart-section tbody .remove-btn:hover {
+  background-color: #ef4444 !important;
+  color: #fff !important;
+  border-color: #ef4444 !important;
+}
+
+/* Responsive Table Wrapper */
+.table-responsive {
+  width: 100% !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid #eef0f4 !important;
+  border-radius: 8px !important;
+  margin-bottom: 25px !important;
+  background: #fff;
+}
+
+/* Cart Buttons Alignment */
+.cart-buttons {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-top: 25px !important;
+  width: 100% !important;
+}
+
+.cart-buttons .btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 46px !important;
+  padding: 0 28px !important;
+  border-radius: 4px !important;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* --------------------------------------------------------------------------
+   5. MODALS ("modal trên dưới, trái phải ngay hàng thẳng lối")
+   -------------------------------------------------------------------------- */
+.modal {
+  text-align: center;
+  padding: 0 !important;
+  z-index: 1055 !important;
+}
+
+.modal-dialog {
+  display: inline-block !important;
+  text-align: left !important;
+  vertical-align: middle !important;
+  margin: 1.75rem auto !important;
+  max-width: 95% !important;
+}
+
+.modal-dialog-centered {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: calc(100% - 3.5rem) !important;
+}
+
+.modal-content {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-radius: 8px !important;
+  background-color: #fff !important;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15) !important;
+  overflow: hidden !important;
+  text-align: left !important;
+}
+
+/* Modal Header */
+.modal-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 16px 24px !important;
+  border-bottom: 1px solid #eef0f4 !important;
+  background-color: #fbfcfd !important;
+  min-height: 56px !important;
+}
+
+.modal-header .modal-title,
+.modal-header h3,
+.modal-header h4,
+.modal-header h5 {
+  margin: 0 !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: #222 !important;
+  line-height: 1.4 !important;
+}
+
+/* Modal Close Button */
+.modal-header .btn-close,
+.modal .btn-close,
+.theme-modal-2 .modal-header .btn-close,
+.search-modal .btn-close,
+.quick-view-modal .btn-close {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  min-height: 32px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 50% !important;
+  background-color: #f0f2f5 !important;
+  background-image: none !important;
+  color: #444 !important;
+  border: none !important;
+  opacity: 0.85 !important;
+  font-size: 18px !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: none !important;
+  line-height: 1 !important;
+}
+
+.modal-header .btn-close:hover,
+.modal .btn-close:hover,
+.theme-modal-2 .modal-header .btn-close:hover,
+.search-modal .btn-close:hover,
+.quick-view-modal .btn-close:hover {
+  opacity: 1 !important;
+  background-color: var(--theme-color, #e22454) !important;
+  color: #fff !important;
+}
+
+.modal .btn-close i,
+.modal .btn-close span {
+  display: block !important;
+  line-height: 1 !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+}
+
+/* Absolute positioned close buttons (Quick view, newsletter) */
+.quick-view-modal .btn-close,
+#exampleModal .btn-close,
+.cart-modal .btn-close {
+  position: absolute !important;
+  top: 14px !important;
+  right: 14px !important;
+  z-index: 1060 !important;
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 24px !important;
+  position: relative !important;
+  line-height: 1.5 !important;
+}
+
+/* Modal Footer */
+.modal-footer {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 12px !important;
+  padding: 16px 24px !important;
+  border-top: 1px solid #eef0f4 !important;
+  background-color: #fbfcfd !important;
+}
+
+.modal-footer .btn {
+  height: 42px !important;
+  padding: 0 22px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 4px !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  margin: 0 !important;
+}
+
+/* Newsletter Modal (#exampleModal) */
+#exampleModal .modal-dialog {
+  max-width: 650px !important;
+}
+
+#exampleModal .modal-body {
+  padding: 0 !important;
+}
+
+#exampleModal .offer-content {
+  padding: 35px 30px !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+#exampleModal .offer-content img {
+  max-height: 180px !important;
+  margin-bottom: 18px !important;
+  object-fit: contain !important;
+}
+
+#exampleModal .offer-content h2 {
+  font-size: 26px !important;
+  font-weight: 700 !important;
+  margin-bottom: 16px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+#exampleModal .auth-form {
+  width: 100% !important;
+  max-width: 440px !important;
+  margin: 0 auto !important;
+}
+
+#exampleModal .auth-form .form-group {
+  display: flex !important;
+  align-items: stretch !important;
+  gap: 8px !important;
+  margin: 0 !important;
+}
+
+#exampleModal .auth-form .form-control {
+  height: 46px !important;
+  flex: 1 1 auto !important;
+  margin-bottom: 0 !important;
+}
+
+#exampleModal .auth-form .btn-solid {
+  height: 46px !important;
+  padding: 0 24px !important;
+  white-space: nowrap !important;
+  margin-top: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Quick View Modal (#quickView) */
+#quickView .modal-dialog,
+.quick-view-modal .modal-dialog {
+  max-width: 900px !important;
+}
+
+#quickView .modal-body,
+.quick-view-modal .modal-body {
+  padding: 30px !important;
+}
+
+#quickView .product-page-details h2 {
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  margin-bottom: 12px !important;
+}
+
+#quickView .product-buttons {
+  display: flex !important;
+  gap: 12px !important;
+  align-items: center !important;
+  margin-top: 20px !important;
+}
+
+/* Search Modal (#searchModal) */
+#searchModal .modal-dialog {
+  max-width: 800px !important;
+}
+
+#searchModal .search-category {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px 12px !important;
+  align-items: center !important;
+  margin-top: 14px !important;
+  margin-bottom: 20px !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+#searchModal .search-category li {
+  margin: 0 !important;
+}
+
+#searchModal .search-category a {
+  display: inline-block !important;
+  padding: 6px 14px !important;
+  border-radius: 20px !important;
+  background-color: #f3f4f6 !important;
+  color: #555 !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease;
+}
+
+#searchModal .search-category a:hover {
+  background-color: var(--theme-color, #e22454) !important;
+  color: #fff !important;
+}
+
+/* Coupon Modal (#couponModal) */
+#couponModal .coupon-box {
+  padding: 16px !important;
+  border: 1.5px dashed #dcdfe6 !important;
+  border-radius: 6px !important;
+  background-color: #fafbfc !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+#couponModal .coupon-apply {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-top: 12px !important;
+  padding-top: 10px !important;
+  border-top: 1px solid #eef0f4 !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. DARK MODE NORMALIZATION
+   -------------------------------------------------------------------------- */
+body.dark .form-control,
+body.dark .form-select,
+body.dark .theme-form input,
+body.dark .theme-form textarea,
+body.dark .form-box .form-control {
+  background-color: #242730 !important;
+  border-color: #3b3f4d !important;
+  color: #e5e7eb !important;
+}
+
+body.dark label,
+body.dark .form-label,
+body.dark .theme-form label {
+  color: #d1d5db !important;
+}
+
+body.dark .form-check-label {
+  color: #cbd5e1 !important;
+}
+
+body.dark .form-check-input {
+  background-color: #242730 !important;
+  border-color: #4b5563 !important;
+}
+
+body.dark .delivery-address-box {
+  background-color: #242730 !important;
+  border-color: #3b3f4d !important;
+}
+
+body.dark .delivery-address-box .form-check-label .name {
+  color: #f3f4f6 !important;
+}
+
+body.dark .modal-content {
+  background-color: #1e2129 !important;
+  border-color: #323644 !important;
+}
+
+body.dark .modal-header,
+body.dark .modal-footer {
+  background-color: #242730 !important;
+  border-color: #323644 !important;
+}
+
+body.dark .modal-header .modal-title,
+body.dark .modal-header h3,
+body.dark .modal-header h4 {
+  color: #f3f4f6 !important;
+}
+
+body.dark .modal-header .btn-close,
+body.dark .modal .btn-close {
+  background-color: #323644 !important;
+  color: #e5e7eb !important;
+}
+
+body.dark .table thead th,
+body.dark table thead th {
+  background-color: #242730 !important;
+  color: #f3f4f6 !important;
+  border-color: #3b3f4d !important;
+}
+
+body.dark .table td,
+body.dark table td {
+  border-color: #323644 !important;
+  color: #d1d5db !important;
+}
+
+body.dark .cart-table tbody tr td .table-price h2,
+body.dark .cart-table tbody tr td h2 {
+  color: #f3f4f6 !important;
+}
+
+body.dark .table-responsive {
+  border-color: #323644 !important;
+  background-color: #1e2129 !important;
+}
